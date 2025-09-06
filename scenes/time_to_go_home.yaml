@@ -1,0 +1,54 @@
+# ─────────────────────────────────────────────
+# Scene: time_to_go_home
+# Purpose: Power down office lighting, media, and switches
+# ─────────────────────────────────────────────
+
+- id: '1736196446521'
+  name: Time to go home
+  icon: mdi:home
+  entities:
+    light.desk_leds:
+      state: "off"
+    switch.desk_leds_power_switch:
+      state: "off"
+    switch.desk_leds_gradient_toggle:
+      state: "unknown"
+    switch.desk_leds_dream_view_toggle:
+      state: "unknown"
+    {% for i in range(1, 16) %}
+    light.desk_leds_segment_{{ '%03d' | format(i) }}:
+      state: "off"
+    {% endfor %}
+    switch.office_dual_plug_outlet_1:
+      state: "off"
+    switch.office_switch_gd4_outlet_2:
+      state: "off"
+    switch.office_switch_gd4_outlet_1:
+      state: "off"
+    media_player.office_roku_tv:
+      state: standby
+    remote.office_roku_tv:
+      state: "off"
+    select.office_roku_tv_channel:
+      state: unknown
+    switch.printer_lights_switch:
+      state: "off"
+    switch.d828c92274fd_ac_power_status:
+      state: "on"
+    climate.d828c92274fd_climate:
+      state: auto
+      temperature: 81
+      fan_mode: Auto
+    light.cougar_lamp:
+      state: "off"
+    light.wine_fridge_lamp:
+      state: "off"
+    light.office_couch_lamp:
+      state: "off"
+  metadata:
+    switch.office_dual_plug_outlet_1:
+      entity_only: true
+    switch.office_switch_gd4_outlet_2:
+      entity_only: true
+    switch.office_switch_gd4_outlet_1:
+      entity_only: true

@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────
+# Scene: time_for_bed
+# Purpose: Power down lights, switches, and media for bedtime
+# ─────────────────────────────────────────────
+
+- id: '1736204090255'
+  name: Time for Bed Scene
+  entities:
+    light.mom_s_lamp_light:
+      state: "off"
+    light.other_lamp_light:
+      state: "off"
+    light.rgbic_tv_light_bars:
+      state: "off"
+    switch.rgbic_tv_light_bars_power_switch:
+      state: "off"
+    switch.rgbic_tv_light_bars_gradient_toggle:
+      state: "unknown"
+    light.family_room_tv_leds:
+      state: "off"
+    switch.family_room_tv_leds_power_switch:
+      state: "off"
+    switch.family_room_tv_leds_gradient_toggle:
+      state: "unknown"
+    switch.family_room_tv_leds_dream_view_toggle:
+      state: "unknown"
+    light.island_led_2:
+      state: "off"
+    switch.island_led_power_switch:
+      state: "off"
+    switch.island_led_gradient_toggle:
+      state: "unknown"
+    switch.island_led_dream_view_toggle:
+      state: "unknown"
+    switch.kitchen_sink:
+      state: "off"
+    light.desk_leds:
+      state: "off"
+    switch.desk_leds_power_switch:
+      state: "off"
+    switch.desk_leds_gradient_toggle:
+      state: "unknown"
+    switch.desk_leds_dream_view_toggle:
+      state: "unknown"
+    switch.office_switch_gd4_outlet_1:
+      state: "off"
+    switch.office_switch_gd4_outlet_2:
+      state: "off"
+    switch.office_dual_plug_outlet_1:
+      state: "off"
+    switch.office_dual_plug_outlet_2:
+      state: "off"
+    switch.garage_lights:
+      state: "off"
+    media_player.office_roku_tv:
+      state: "standby"

@@ -1,0 +1,146 @@
+# ─────────────────────────────────────────────
+# File: lighting.yaml
+# Purpose: Scheduled, reactive, and motion-based lighting automations
+# ─────────────────────────────────────────────
+
+- alias: lighting_fish_lights_on
+  description: Turns on the Fish Tank lights at 6:30 am
+  trigger:
+    - platform: time
+      at: "06:30:00"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.office_dual_plug_outlet_2
+  mode: single
+
+- alias: lighting_fish_lights_off
+  description: Turns off the Fish Tank lights at 7:30 pm
+  trigger:
+    - platform: time
+      at: "19:30:00"
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.office_dual_plug_outlet_2
+  mode: single
+
+- alias: lighting_pantry_door_control
+  description: Turns pantry light on/off based on door sensor
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pantry_door
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.pantry_door
+              state: "on"
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: switch.pantry_light
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.pantry_door
+              state: "off"
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: switch.pantry_light
+  mode: single
+
+- alias: lighting_family_room_leds
+  description: Sync LED strip with Family Room TV state
+  trigger:
+    - platform: state
+      entity_id: media_player.family_room_tv
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: media_player.family_room_tv
+              state: "on"
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: switch.family_room_led
+        - conditions:
+            - condition: state
+              entity_id: media_player.family_room_tv
+              state: "off"
+          sequence:
+            - service: light.turn_off
+              target:
+                entity_id: light.family_room_led
+  mode: single
+
+- alias: lighting_master_tv_leds
+  description: Sync Master TV LED brightness with TV state
+  trigger:
+    - platform: state
+      entity_id: media_player.master_tv
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: media_player.master_tv
+              state: "on"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.master_tv_led
+              data:
+                brightness_pct: 95
+        - conditions:
+            - condition: state
+              entity_id: media_player.master_tv
+              state: "off"
+          sequence:
+            - service: light.turn_off
+              target:
+                entity_id: light.master_tv_led
+  mode: single
+
+- alias: lighting_front_door_motion
+  description: Boost front door light brightness when motion detected, then restore
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_motion
+      to: "on"
+  condition:
+    - condition: sun
+      after: sunset
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.front_door
+      data:
+        kelvin: 6500
+        brightness_pct: 100
+    - delay:
+        minutes: 2
+    - service: light.turn_on
+      target:
+        entity_id: light.front_door
+      data:
+        brightness_pct: 25
+  mode: single
+
+- alias: lighting_driveway_motion
+  description: Boost garage light brightness for 2 minutes on driveway motion
+  trigger:
+    - platform: state
+      entity_id: switch.driveway_motion_trigger
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: light.garage_door_lights
+      state: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.garage_door_lights
+      data:
+        rgb_color: [243, 242, 242]
+        brightness_pct:

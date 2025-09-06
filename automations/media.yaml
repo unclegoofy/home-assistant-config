@@ -1,0 +1,126 @@
+# ─────────────────────────────────────────────
+# File: media.yaml
+# Purpose: Media player announcements, alerts, and playback routines
+# ─────────────────────────────────────────────
+
+- alias: media_dryer_finished_announcement
+  description: Announce dryer completion via speaker group
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.dryer_running
+      to: "on"
+  condition:
+    - condition: time
+      after: "07:00:00"
+      before: "23:00:00"
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        volume_level: 0.5
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.gh_speaker_group_2
+        message: "The Dryer has finished running."
+        cache: false
+  mode: single
+
+- alias: media_washer_finished_announcement
+  description: Announce washer completion and prompt clothes transfer
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.washer_running
+      to: "on"
+  condition:
+    - condition: time
+      after: "07:00:00"
+      before: "23:00:00"
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        volume_level: 0.5
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.gh_speaker_group_2
+        message: "The washer has finished running. Please move clothes to the dryer."
+        cache: true
+  mode: single
+
+- alias: media_dishwasher_finished_announcement
+  description: Notify when dishwasher finishes and flash light
+  trigger:
+    - platform: state
+      entity_id: select.dishwasher_cycle
+      from: "run"
+      to: "stop"
+  condition:
+    - condition: time
+      after: "08:00:00"
+      before: "23:00:00"
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        volume_level: 0.5
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.gh_speaker_group_2
+        message: "The dishes are clean."
+        cache: false
+    - service: light.turn_on
+      target:
+        device_id: light.dishwasher_indicator
+      data:
+        brightness_pct: 75
+        rgb_color: [8, 143, 226]
+        flash: long
+  mode: single
+
+- alias: media_doorbell_triggered
+  description: Play doorbell sound when motion is detected at door
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_motion
+      to: "on"
+  condition:
+    - condition: time
+      after: "07:00:00"
+      before: "21:00:00"
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        volume_level: 0.75
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        media_content_id: media-source://media_source/local/Doorbell/Someone knocking on the door.mp3
+        media_content_type: audio/mpeg
+  mode: single
+
+- alias: media_garage_fridge_open_alert
+  description: Alert if garage fridge door is left open for 1 minute
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_fridge_door
+      to: "on"
+      for:
+        minutes: 1
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.garage_speaker
+      data:
+        volume_level: 0.5
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.garage_speaker
+        message: "The Garage Freezer door is open. Please close it."
+        cache: true
+  mode: single

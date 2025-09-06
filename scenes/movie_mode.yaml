@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────
+# Scene: movie_mode
+# Purpose: Dimmed purple lighting for cinematic atmosphere
+# ─────────────────────────────────────────────
+
+- id: '1740331759321'
+  name: Movie mode
+  icon: mdi:movie-check-outline
+  entities:
+    light.kitchen_accent_lights:
+      state: "on"
+      brightness: 38
+      color_mode: rgb
+      rgb_color: [98, 7, 255]
+    switch.kitchen_accent_lights_power_switch:
+      state: "on"
+    switch.kitchen_accent_lights_gradient_toggle:
+      state: "unknown"
+    switch.kitchen_accent_lights_dream_view_toggle:
+      state: "unknown"
+
+    light.island_led_2:
+      state: "on"
+      brightness: 26
+      color_mode: rgb
+      rgb_color: [92, 5, 255]
+    switch.island_led_power_switch:
+      state: "on"
+    switch.island_led_gradient_toggle:
+      state: "unknown"
+    switch.island_led_dream_view_toggle:
+      state: "unknown"
+
+    light.behind_sofa_leds:
+      state: "on"
+      brightness: 26
+      color_mode: rgb
+      rgb_color: [97, 0, 255]
+    switch.behind_sofa_leds_power_switch:
+      state: "on"
+    switch.behind_sofa_leds_gradient_toggle:
+      state: "unknown"
+    switch.behind_sofa_leds_dream_view_toggle:
+      state: "unknown"
+    light.behind_sofa_leds_segment_015:
+      state: "off"
+
+    light.mom_s_lamp_light:
+      state: "off"
+    light.other_lamp_light:
+      state: "off"
+
+    light.corner_shelf:
+      state: "on"
+      brightness: 150
+      color_mode: hs
+      hs_color: [266, 99]
+
+    light.family_room_shelf_light:
+      state: "on"
+      brightness: 43
+      color_mode: brightness
+
+    light.sofa:
+      state: "on"
+      brightness: 64
+      color_mode: xy
+      xy_color: [0.313, 0.21]

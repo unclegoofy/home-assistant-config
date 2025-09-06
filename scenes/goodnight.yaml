@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────
+# Scene: goodnight
+# Purpose: Master suite shutdown routine for bedtime
+# ─────────────────────────────────────────────
+
+- id: '1736204626976'
+  name: Goodnight John boy
+  icon: mdi:sleep
+  entities:
+    light.master_bath_shelf:
+      state: "off"
+    switch.master_bath_shelf_power_switch:
+      state: "off"
+    switch.master_bath_shelf_gradient_toggle:
+      state: "unknown"
+    switch.master_bath_shelf_dream_view_toggle:
+      state: "unknown"
+
+    media_player.master_bedroom_tv:
+      state: "unavailable"
+    remote.master_bedroom_tv:
+      state: "unavailable"
+
+    light.master_tv_leds:
+      state: "off"
+    switch.master_tv_leds_power_switch:
+      state: "off"
+    switch.master_tv_leds_gradient_toggle:
+      state: "unknown"
+    switch.master_tv_leds_dream_view_toggle:
+      state: "unknown"
+
+    switch.bear_lamp_z3_switch:
+      state: "off"
+    switch.dual_nightstand_lights_outlet_1:
+      state: "off"
+    switch.dual_nightstand_lights_outlet_2:
+      state: "off"
+    switch.scentsy_switch:
+      state: "off"
+
+    light.master_bedroom_bed_leds:
+      state: "off"
+
+  metadata: {}

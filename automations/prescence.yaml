@@ -1,0 +1,71 @@
+# ─────────────────────────────────────────────
+# File: presence.yaml
+# Purpose: Arrival and departure routines based on device tracking
+# ─────────────────────────────────────────────
+
+- alias: presence_gabby_arrives_after_dark
+  description: Turn on Gabby's bedroom light when she arrives after sunset
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.gabby
+      zone: zone.home
+      event: enter
+  condition:
+    - condition: sun
+      after: sunset
+  action:
+    - service: light.turn_on
+      target:
+        device_id: light.gabby_bedroom
+      data:
+        brightness_pct: 50
+  mode: single
+
+- alias: presence_brianna_arrives_after_dark
+  description: Turn on Brianna's bedroom light when she arrives after sunset
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.brianna
+      zone: zone.home
+      event: enter
+  condition:
+    - condition: sun
+      after: sunset
+  action:
+    - service: light.turn_on
+      target:
+        device_id: light.brianna_bedroom
+      data:
+        brightness_pct: 50
+  mode: single
+
+- alias: presence_roxanne_leaves_for_work
+  description: Turn off devices when Roxanne leaves home
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.roxanne
+      zone: zone.home
+      event: leave
+  action:
+    - service: remote.turn_off
+      target:
+        entity_id: remote.roxanne_tv
+    - service: switch.turn_off
+      target:
+        entity_id:
+          - switch.roxanne_lamp
+          - switch.roxanne_fan
+  mode: single
+
+- alias: presence_gabby_leaves_for_work
+  description: Turn off Gabby's bedroom light when she leaves home
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.gabby
+      zone: zone.home
+      event: leave
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.gabby_bedroom
+  mode: single
