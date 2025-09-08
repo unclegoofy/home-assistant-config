@@ -6,7 +6,7 @@ frontend:
 
 # Modular includes
 automation: !include_dir_merge_list automations/
-script: !include_dir_merge_named scripts/
+script: !include_dir_merge_list scripts/
 scene: !include_dir_merge_list scenes/
 
 # MariaDB recorder
@@ -18,7 +18,3 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 192.168.80.100
-    
-
-     # test
-     
