@@ -7,6 +7,10 @@
 !automations/
 !scripts/
 !scenes/
+!automations.yaml
+!scenes.yaml
+!scripts.yaml
+
 
 # Optional: allow other YAML config you want in Git
 !blueprints/

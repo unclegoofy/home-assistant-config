@@ -1,0 +1,29 @@
+time_for_bed_script_2:
+  sequence:
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.time_for_bed_scene
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      device_id: 63e3772dc5ae26e489f92824bed0e5b4
+  alias: time for bed script
+  description: Works with GOOGLE HOME -- Script that turns off light and delays the
+    kitchen accent light for 5 minutes
+  icon: mdi:bed
+let_go_home:
+  sequence:
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.time_to_go_home_scene
+  alias: Let go home
+  description: ''
