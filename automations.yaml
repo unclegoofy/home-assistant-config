@@ -10,6 +10,7 @@
       target:
         entity_id: switch.office_dual_plug_outlet_2
   mode: single
+
 - id: '1736200267958'
   alias: Turn Off Fish Lights
   description: Turn Off Fish Lights at 7:30 pm
@@ -41,8 +42,8 @@
     - service: scene.turn_on
       target:
         entity_id: scene.time_for_work_2
-
   mode: single
+
 - id: '1736201001617'
   alias: Pantry Light on/off
   description: Turns on or off the Pantry light depending on state of door sensor
@@ -64,6 +65,7 @@
           target:
             entity_id: switch.pantry_light
   mode: single
+
 - id: '1736201460884'
   alias: Family Room LED's
   description: Turn on LED's if TV is turned on, and turn off if not on
@@ -209,7 +211,7 @@
         message: The washer has finished running. Please move clothes to the dryer.
   mode: single
 
--- id: '1736203044640'
+- id: '1736203044640'
   alias: Dishwasher has finished running
   description: Announce and flash light when dishwasher finishes
   trigger:
@@ -255,17 +257,15 @@
 - id: '1736203243743'
   alias: Let's Relax automation
   description: ''
-  triggers:
-  - trigger: sun
-    event: sunset
-    offset: '-300'
-  conditions: []
-  actions:
-  - action: scene.turn_on
-    metadata: {}
-    data: {}
-    target:
-      entity_id: scene.lets_relax_scene
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-300'
+  condition: []
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.lets_relax_scene
   mode: single
 
 - id: '1736205456810'
@@ -291,190 +291,10 @@
         entity_id: scene.goodnight_john_boy
       enabled: false
   mode: single
+
 - id: '1736205770847'
   alias: Play Media when doorbell is pushed
   trigger:
     - platform: device
       type: occupied
-      device_id: 01c1ddd4016a5da445a3002653c9624b
-      entity_id: 9fb24bad40c10c2347807ec9424e0f08
-      domain: binary_sensor
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '21:00:00'
-  action:
-    - service: media_player.volume_set
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        volume_level: 0.75
-    - service: media_player.play_media
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        media_content_id: media-source://media_source/local/Doorbell/Someone knocking on the door.mp3
-        media_content_type: audio/mpeg
-  mode: single- id: '1736208259728'
-  alias: Front Door Light Motion Detected
-  description: Turns front door light to full brightness when person is detected, then dims after 2 minutes
-  trigger:
-    - platform: device
-      type: turned_on
-      device_id: 01c1ddd4016a5da445a3002653c9624b
-      entity_id: 563c1dde2ebe1dba585f4e39fa9bc7eb
-      domain: binary_sensor
-  condition:
-    - condition: sun
-      after: sunset
-  action:
-    - service: light.turn_on
-      target:
-        device_id: 12eb2902fec46e4063b6bca537501535
-      data:
-        kelvin: 6500
-        brightness_pct: 100
-    - delay: "00:02:00"
-    - service: light.turn_on
-      target:
-        device_id: 12eb2902fec46e4063b6bca537501535
-      data:
-        brightness_pct: 25
-  mode: single- id: '1736208770976'
-  alias: Driveway motion detected
-  description: Turn Garage light on full brightness for 2 minutes, then dim
-  trigger:
-    - platform: device
-      type: turned_on
-      device_id: 63facbe28d038848650ca65275c1465f
-      entity_id: 8b0438b26d4d2197115d01280290e46b
-      domain: switch
-  condition:
-    - condition: state
-      entity_id: light.garage_door_lights
-      state: 'on'
-  action:
-    - service: light.turn_on
-      target:
-        entity_id: light.garage_door_lights
-      data:
-        rgb_color: [243, 242, 242]
-        brightness_pct: 100
-    - delay: "00:02:00"
-    - service: light.turn_on
-      target:
-        entity_id: light.garage_door_lights
-      data:
-        brightness_pct: 25
-  mode: single- id: '1736209171591'
-  alias: Turn on Patio Lights when motion detected
-  trigger:
-    - platform: device
-      type: motion
-      device_id: 9bdea84b129323c12d6450ef0434af21
-      entity_id: 39a9ebb1d81c32f20ac59b6eed244e0f
-      domain: binary_sensor
-  condition:
-    - condition: sun
-      after: sunset
-  action:
-    - service: switch.turn_on
-      target:
-        device_id: dbd1c7ce4dafa6961758df15cb76d2e8
-    - delay: "00:03:00"
-    - service: switch.turn_off
-      target:
-        device_id: dbd1c7ce4dafa6961758df15cb76d2e8
-  mode: single
-- id: '1736209498208'
-  alias: Garage interior Motion
-  description: ''
-  triggers:
-  - type: motion
-    device_id: 9b5f66083d59a2dd7f5a2eccdbaa897e
-    entity_id: 3d359967fe4cf7d051511872512d8545
-    domain: binary_sensor
-    trigger: device
-  conditions:
-  - condition: state
-    entity_id: binary_sensor.interior_garage_g3_flex_is_dark
-    state: 'on'
-  actions:
-  - action: switch.turn_on
-    metadata: {}
-    data: {}- id: '1736352696300'
-  alias: Gabby Arrives Home after Dark
-  description: Gabby arrives home after sunset and this turns on her bedroom light.
-  trigger:
-    - platform: device
-      device_id: ed076af17b373aace55d0777ddd82b16
-      domain: device_tracker
-      entity_id: c2c45289e914d1fc40f452ed3eebe619
-      type: enters
-      zone: zone.home
-  condition:
-    - condition: sun
-      after: sunset
-  action:
-    - service: light.turn_on
-      target:
-        device_id: 0208fe8795d2d0bde39bd0171e269e5b
-      data:
-        brightness_pct: 50
-  mode: single- id: '1746844966051'
-  alias: Front of house lights on at sunset
-  description: Turn on front of house lights at 25% brightness shortly before sunset
-  use_blueprint:
-    path: CyanAutomation/lights_on_at_sunset.yaml
-    input:
-      target_light:
-        device_id:
-          - 12eb2902fec46e4063b6bca537501535
-          - bb125b76b148dd38af12452535a4b5c4
-          - 235b48bf9f8bbde2f7dd3f26f075965e
-          - a250883bc83e86ce6b94edb4a055f7e6
-      target_brightness: 25
-      elevation_shift: -1
-
-- id: '1748042948622'
-  alias: Garage Fridge is open
-  description: Notify if the garage fridge door is left open for more than 1 minute
-  trigger:
-    - platform: device
-      type: opened
-      device_id: ca70f08f74ed5159305440dd9f34e0f1
-      entity_id: 71b639894f45486886bb3388d2c51ff5
-      domain: binary_sensor
-      for:
-        minutes: 1
-  condition: []
-  action:
-    - service: media_player.volume_set
-      target:
-        device_id: f44961a01c17122f7f0514bea244dbf7
-      data:
-        volume_level: 0.5
-    - service: tts.cloud_say
-      data:
-        cache: true
-        entity_id: media_player.2025_doorbell_group
-        message: The garage freezer door is open. Please close it.
-  mode: single
-
-- id: '1748215525110'
-  alias: Undercounter light on
-  description: Turn on undercounter light when motion is detected for 1 minute
-  trigger:
-    - platform: device
-      type: motion
-      device_id: 42afe12d20104ac1bc47bdda172f0460
-      entity_id: 44bad72908968724e49ee68b2f905743
-      domain: binary_sensor
-      for:
-        minutes: 1
-  condition: []
-  action:
-    - service: switch.turn_on
-      target:
-        device_id: d620fe27060b1bef195fed8559311f74
-  mode: single
+      device_id: 01c1
