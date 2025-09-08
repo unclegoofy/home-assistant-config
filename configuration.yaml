@@ -4,10 +4,18 @@ frontend:
   extra_module_url:
     - /local/community/custom-brand-icons/custom-brand-icons.js
 
-# Modular includes
-automation: !include_dir_merge_list automations/
-script: !include_dir_merge_list scripts/
-scene: !include_dir_merge_list scenes/
+# Hybrid includes: UI + modular YAML
+automation:
+  - !include automations.yaml
+  - !include_dir_merge_list automations/
+
+script:
+  - !include scripts.yaml
+  - !include_dir_merge_list scripts/
+
+scene:
+  - !include scenes.yaml
+  - !include_dir_merge_list scenes/
 
 # MariaDB recorder
 recorder:
