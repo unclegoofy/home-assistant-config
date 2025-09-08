@@ -3,7 +3,7 @@
 # Purpose: Trigger “time to go home” scene
 # ─────────────────────────────────────────────
 
-alias: Let go home
+alias: let go home
 description: Activates the “time to go home” scene
 sequence:
   - service: scene.turn_on
