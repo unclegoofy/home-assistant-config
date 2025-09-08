@@ -1,0 +1,28 @@
+# Ignore everything by default
+*
+
+# Allow these tracked files/folders
+!.gitignore
+!configuration.yaml
+!automations/
+!scripts/
+!scenes/
+
+# Optional: allow other YAML config you want in Git
+!blueprints/
+!custom_components/
+
+# Ignore HA runtime and UI state
+.storage/
+home-assistant_v2.db
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
+*.log
+*.log.*
+*.db
+*.db-*
+
+# Ignore backups and temporary files
+.backups/
+tmp/
+*.tmp
