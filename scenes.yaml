@@ -1,4 +1,4 @@
-- hid: '1736196315923'
+- id: '1736196315923'
   name: Time for work scene
   entities:
     light.desk_leds:
