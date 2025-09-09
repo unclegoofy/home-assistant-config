@@ -395,7 +395,7 @@
       brightness: 46
       color_temp_kelvin: 5434
       color_temp: 184
-      hs_color: [27.746
+      hs_color: [27.746]
   
 - id: '1736204090255'
   name: time for bed scene
