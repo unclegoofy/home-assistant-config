@@ -294,7 +294,27 @@
 
 - id: '1736205770847'
   alias: Play Media when doorbell is pushed
+  description: Plays doorbell sound on speaker when motion is detected
   trigger:
     - platform: device
       type: occupied
-      device_id: 01c1
+      device_id: 01c1ddd4016a5da445a3002653c9624b
+      entity_id: binary_sensor.doorbell_motion
+      domain: binary_sensor
+  condition:
+    - condition: time
+      after: '07:00:00'
+      before: '21:00:00'
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        volume_level: 0.75
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.gh_speaker_group_2
+      data:
+        media_content_id: media-source://media_source/local/Doorbell/Someone knocking on the door.mp3
+        media_content_type: audio/mpeg
+  mode: single
