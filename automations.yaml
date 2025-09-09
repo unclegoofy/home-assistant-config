@@ -2,319 +2,311 @@
   alias: Turn On Fish Lights
   description: Turns on the Fish Tank lights at 6:30 am
   trigger:
-    - platform: time
-      at: '06:30:00'
+  - platform: time
+    at: 06:30:00
   condition: []
   action:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.office_dual_plug_outlet_2
+  - service: switch.turn_on
+    target:
+      entity_id: switch.office_dual_plug_outlet_2
   mode: single
-
 - id: '1736200267958'
   alias: Turn Off Fish Lights
   description: Turn Off Fish Lights at 7:30 pm
   trigger:
-    - platform: time
-      at: '19:30:00'
+  - platform: time
+    at: '19:30:00'
   condition: []
   action:
-    - service: switch.turn_off
-      target:
-        entity_id: switch.office_dual_plug_outlet_2
+  - service: switch.turn_off
+    target:
+      entity_id: switch.office_dual_plug_outlet_2
   mode: single
-
 - id: '1736200586902'
   alias: Turn on office for work
   description: Turn on office for work weekdays at 6:30 am
   trigger:
-    - platform: time
-      at: '06:30:00'
+  - platform: time
+    at: 06:30:00
   condition:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
   action:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.time_for_work_2
+  - service: scene.turn_on
+    target:
+      entity_id: scene.time_for_work_2
   mode: single
-
 - id: '1736201001617'
   alias: Pantry Light on/off
   description: Turns on or off the Pantry light depending on state of door sensor
   trigger:
-    - platform: state
-      entity_id: binary_sensor.pantry_door
+  - platform: state
+    entity_id: binary_sensor.pantry_door
   condition: []
   action:
-    - if:
-        - condition: state
-          entity_id: binary_sensor.pantry_door
-          state: 'on'
-      then:
-        - service: switch.turn_on
-          target:
-            entity_id: switch.pantry_light
-      else:
-        - service: switch.turn_off
-          target:
-            entity_id: switch.pantry_light
+  - if:
+    - condition: state
+      entity_id: binary_sensor.pantry_door
+      state: 'on'
+    then:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.pantry_light
+    else:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.pantry_light
   mode: single
-
 - id: '1736201460884'
   alias: Family Room LED's
   description: Turn on LED's if TV is turned on, and turn off if not on
-  trigger:
-    - platform: state
-      entity_id: media_player.family_room_tv
-  condition: []
-  action:
-    - if:
-        - condition: state
-          entity_id: media_player.family_room_tv
-          state: 'on'
-      then:
-        - service: switch.turn_on
-          target:
-            entity_id: switch.family_room_leds
-      else:
-        - service: light.turn_off
-          target:
-            entity_id: light.family_room_leds
+  triggers:
+  - entity_id:
+    - media_player.family_room
+    trigger: state
+  conditions: []
+  actions:
+  - if:
+    - condition: state
+      entity_id: media_player.family_room
+      state: 'on'
+    then:
+    - target:
+        entity_id: switch.family_room_leds
+      action: switch.turn_on
+    else:
+    - target:
+        entity_id: light.family_room_leds
+      action: light.turn_off
+      data: {}
   mode: single
-
 - id: '1736201652503'
   alias: Master TV LED's
   description: Turn on master TV LED when TV turns on, else turn off
-  trigger:
-    - platform: state
-      entity_id: media_player.master_bedroom_tv
-  condition: []
-  action:
-    - if:
-        - condition: state
-          entity_id: media_player.master_bedroom_tv
-          state: 'on'
-      then:
-        - service: light.turn_on
-          target:
-            entity_id: light.master_tv_leds
-          data:
-            brightness_pct: 95
-      else:
-        - service: light.turn_off
-          target:
-            entity_id: light.master_tv_leds
+  triggers:
+  - entity_id:
+    - media_player.master_tv_2
+    trigger: state
+  conditions: []
+  actions:
+  - if:
+    - condition: state
+      entity_id: media_player.master_tv_2
+      state: 'on'
+    then:
+    - target:
+        entity_id: light.master_tv_leds
+      data:
+        brightness_pct: 95
+      action: light.turn_on
+    else:
+    - target:
+        entity_id: light.master_tv_leds
+      action: light.turn_off
   mode: single
-
 - id: '1736202150288'
   alias: Side garage door open
-  description: If Side Garage door opens after 9:30 PM, flash hall night light red; turn off when closed
+  description: If Side Garage door opens after 9:30 PM, flash hall night light red;
+    turn off when closed
   trigger:
-    - platform: state
-      entity_id: binary_sensor.side_garage_door
+  - platform: state
+    entity_id: binary_sensor.side_garage_door
   condition:
-    - condition: time
-      after: '21:30:00'
-      weekday:
-        - sun
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
+  - condition: time
+    after: '21:30:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
   action:
-    - if:
-        - condition: state
-          entity_id: binary_sensor.side_garage_door
-          state: 'on'
-      then:
-        - service: light.turn_on
-          target:
-            entity_id: light.hall_night_light
-          data:
-            rgb_color: [242, 7, 7]
-            flash: short
-      else:
-        - service: light.turn_off
-          target:
-            entity_id: light.hall_night_light
+  - if:
+    - condition: state
+      entity_id: binary_sensor.side_garage_door
+      state: 'on'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id: light.hall_night_light
+      data:
+        rgb_color:
+        - 242
+        - 7
+        - 7
+        flash: short
+    else:
+    - service: light.turn_off
+      target:
+        entity_id: light.hall_night_light
   mode: single
-
 - id: '1736202452093'
   alias: Dryer has finished running
   description: Announce on speakers when dryer finishes
   trigger:
-    - platform: state
-      entity_id: binary_sensor.dryer_finished
-      to: 'on'
+  - platform: state
+    entity_id: binary_sensor.dryer_finished
+    to: 'on'
   condition:
-    - condition: time
-      after: '07:00:00'
-      before: '23:00:00'
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
+  - condition: time
+    after: 07:00:00
+    before: '23:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
   action:
-    - service: media_player.volume_set
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        volume_level: 0.5
-    - service: tts.cloud_say
-      data:
-        cache: false
-        entity_id: media_player.gh_speaker_group_2
-        message: The Dryer has finished running.
+  - service: media_player.volume_set
+    target:
+      entity_id: media_player.gh_speaker_group_2
+    data:
+      volume_level: 0.5
+  - service: tts.cloud_say
+    data:
+      cache: false
+      entity_id: media_player.gh_speaker_group_2
+      message: The Dryer has finished running.
   mode: single
-
 - id: '1736202825725'
   alias: Washer is finished running
   description: Announce on speakers when washer finishes
   trigger:
-    - platform: state
-      entity_id: binary_sensor.washer_finished
-      to: 'on'
+  - platform: state
+    entity_id: binary_sensor.washer_finished
+    to: 'on'
   condition:
-    - condition: time
-      after: '07:00:00'
-      before: '23:00:00'
-      weekday:
-        - sun
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
+  - condition: time
+    after: 07:00:00
+    before: '23:00:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
   action:
-    - service: media_player.volume_set
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        volume_level: 0.5
-    - service: tts.cloud_say
-      data:
-        cache: true
-        entity_id: media_player.gh_speaker_group_2
-        message: The washer has finished running. Please move clothes to the dryer.
+  - service: media_player.volume_set
+    target:
+      entity_id: media_player.gh_speaker_group_2
+    data:
+      volume_level: 0.5
+  - service: tts.cloud_say
+    data:
+      cache: true
+      entity_id: media_player.gh_speaker_group_2
+      message: The washer has finished running. Please move clothes to the dryer.
   mode: single
-
-- id: '1736203044640'
-  alias: Dishwasher has finished running
-  description: Announce and flash light when dishwasher finishes
-  trigger:
-    - platform: device
-      device_id: dishwasher_device_id
-      domain: select
-      entity_id: select.dishwasher_cycle
-      type: current_option_changed
-      from: run
-      to: stop
-  condition:
-    - condition: time
-      after: '08:00:00'
-      before: '23:00:00'
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
-  action:
-    - service: media_player.volume_set
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        volume_level: 0.5
-    - service: tts.cloud_say
-      data:
-        cache: false
-        entity_id: media_player.gh_speaker_group_2
-        message: The dishes are clean.
-    - service: light.turn_on
-      target:
-        entity_id: light.kitchen_indicator
-      data:
-        brightness_pct: 75
-        rgb_color: [8, 143, 226]
-        flash: long
-  mode: single
-
 - id: '1736203243743'
   alias: Let's Relax automation
   description: ''
   trigger:
-    - platform: sun
-      event: sunset
-      offset: '-300'
+  - platform: sun
+    event: sunset
+    offset: '-300'
   condition: []
   action:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.lets_relax_scene
+  - service: scene.turn_on
+    target:
+      entity_id: scene.lets_relax_scene
   mode: single
-
 - id: '1736205456810'
   alias: time for bed automation
-  description: Runs time for bed scene and delays turning off Kitchen accent light for 5 mins
+  description: Runs time for bed scene and delays turning off Kitchen accent light
+    for 5 mins
   trigger:
-    - platform: time
-      at: '23:30:00'
-    - platform: conversation
-      command: Time for bed
+  - platform: time
+    at: '23:30:00'
+  - platform: conversation
+    command: Time for bed
   condition:
-    - condition: device
-      type: is_on
-      device_id: 63e3772dc5ae26e489f92824bed0e5b4
-      entity_id: e4a2c7de3a7b122aa5d9750619eabdd1
-      domain: light
+  - condition: device
+    type: is_on
+    device_id: 63e3772dc5ae26e489f92824bed0e5b4
+    entity_id: e4a2c7de3a7b122aa5d9750619eabdd1
+    domain: light
   action:
-    - service: script.turn_on
-      target:
-        entity_id: script.time_for_bed_script_2
-    - service: scene.turn_on
-      target:
-        entity_id: scene.goodnight_john_boy
-      enabled: false
+  - service: script.turn_on
+    target:
+      entity_id: script.time_for_bed_script_2
+  - service: scene.turn_on
+    target:
+      entity_id: scene.goodnight_john_boy
+    enabled: false
   mode: single
-
 - id: '1736205770847'
   alias: Play Media when doorbell is pushed
   description: Plays doorbell sound on speaker when motion is detected
   trigger:
-    - platform: device
-      type: occupied
-      device_id: 01c1ddd4016a5da445a3002653c9624b
-      entity_id: binary_sensor.doorbell_motion
-      domain: binary_sensor
+  - platform: device
+    type: occupied
+    device_id: 01c1ddd4016a5da445a3002653c9624b
+    entity_id: binary_sensor.doorbell_motion
+    domain: binary_sensor
   condition:
-    - condition: time
-      after: '07:00:00'
-      before: '21:00:00'
+  - condition: time
+    after: 07:00:00
+    before: '21:00:00'
   action:
-    - service: media_player.volume_set
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        volume_level: 0.75
-    - service: media_player.play_media
-      target:
-        entity_id: media_player.gh_speaker_group_2
-      data:
-        media_content_id: media-source://media_source/local/Doorbell/Someone knocking on the door.mp3
-        media_content_type: audio/mpeg
+  - service: media_player.volume_set
+    target:
+      entity_id: media_player.gh_speaker_group_2
+    data:
+      volume_level: 0.75
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.gh_speaker_group_2
+    data:
+      media_content_id: media-source://media_source/local/Doorbell/Someone knocking
+        on the door.mp3
+      media_content_type: audio/mpeg
+  mode: single
+- id: '1757427938275'
+  alias: Dishwasher has finished running
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - select.dishwasher
+    from: run
+    to: stop
+  conditions:
+  - condition: time
+    after: 08:00:00
+    before: '22:00:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  actions:
+  - action: media_player.volume_set
+    metadata: {}
+    data:
+      volume_level: 0.5
+    target:
+      device_id: 7cbe28bcdd27f103770c14fbf19bb82b
+  - action: tts.speak
+    metadata: {}
+    data:
+      cache: true
+      media_player_entity_id: media_player.gh_speaker_group_2
+      message: The dishes are clean
+    target:
+      entity_id: tts.home_assistant_cloud
   mode: single

@@ -1,25 +1,3 @@
-time_for_bed_script_2:
-  id: time_for_bed_script_2
-  alias: Time for Bed Script
-  description: Works with Google Home — turns off light and delays kitchen accent light for 5 minutes
-  icon: mdi:bed
-  sequence:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.time_for_bed_scene
-    - delay: "00:05:00"
-    - service: light.turn_off
-      target:
-        device_id: 63e3772dc5ae26e489f92824bed0e5b4
-
-let_go_home:
-  id: let_go_home
-  alias: Let Go Home
-  sequence:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.time_to_go_home_scene
-
 restore_light_state:
   alias: Restore Light State
   description: Restore light brightness after delay
@@ -40,60 +18,40 @@ restore_light_state:
         number:
           min: 0
           max: 100
-          unit_of_measurement: "%"
+          unit_of_measurement: '%'
   sequence:
-    - delay: "00:02:00"
-    - service: light.turn_on
-      target:
-        entity_id: "{{ target_light }}"
-      data:
-        brightness_pct: "{{ brightness }}"
-
-sync_tv_leds:
-  alias: Sync TV LEDs
-  description: Sync LED state with TV power state
-  mode: single
-  fields:
-    tv_entity:
-      name: TV Entity
-      description: TV media_player entity
-      example: media_player.master_tv
-      selector:
-        entity:
-          domain: media_player
-    led_entity:
-      name: LED Entity
-      description: LED light or switch entity
-      example: light.master_tv_led
-      selector:
-        entity:
-          domain: light
-    brightness:
-      name: Brightness
-      description: Brightness percentage when turning on
-      example: 95
-      selector:
-        number:
-          min: 0
-          max: 100
-          unit_of_measurement: "%"
+  - delay: 00:02:00
+  - service: light.turn_on
+    target:
+      entity_id: '{{ target_light }}'
+    data:
+      brightness_pct: '{{ brightness }}'
+lets_go_home_2:
   sequence:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: "{{ tv_entity }}"
-              state: "on"
-          sequence:
-            - service: light.turn_on
-              target:
-                entity_id: "{{ led_entity }}"
-              data:
-                brightness_pct: "{{ brightness | default(100) }}"
-        - conditions:
-            - condition: state
-              entity_id: "{{ tv_entity }}"
-              state: "off"
-          sequence:
-            - service: light.turn_off
-              target:
-                entity_id: "{{ led_entity }}"
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.time_to_go_home_scene
+  alias: Lets go home
+  description: ''
+time_for_bed_script_3:
+  sequence:
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.time_for_bed_scene
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: 63e3772dc5ae26e489f92824bed0e5b4
+    entity_id: 9ec911ffcece9ac3b5637fb4bd614fd7
+    domain: switch
+  alias: ' time for bed script'
+  description: Works with Google Home — runs bedtime scene and turns off kitchen accent
+    light after 5 minutes
+  icon: mdi:bed
