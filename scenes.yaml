@@ -389,14 +389,20 @@
       hs_color: [26.914, 38.308]
       rgb_color: [255, 201, 157]
       xy_color: [0.432, 0.368]
-    light.other_lamp_light:
-      state: 'on'
-      color_mode: color_temp
-      brightness: 46
-      color_temp_kelvin: 5434
-      color_temp: 184
-      hs_color: [27.746]
-  
+      light.other_lamp_light:
+        state: 'on'
+        color_mode: color_temp
+        brightness: 46
+        color_temp_kelvin: 5434
+        color_temp: 184
+        hs_color: [27.746, 100]
+
+- id: '1736204090255'
+  name: time for bed scene
+  entities:
+    # ─── Lamps ───
+    light.mom_s_lamp_light:
+      state: 'off'
 - id: '1736204090255'
   name: time for bed scene
   entities:
