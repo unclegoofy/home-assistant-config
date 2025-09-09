@@ -594,7 +594,7 @@
     select.office_roku_tv_channel:
       state: unavailable
 
-    # ─── Behind Sofa LEDs ───
+# ─── Behind Sofa LEDs ───
     light.behind_sofa_leds:
       state: 'off'
     switch.behind_sofa_leds_power_switch:
@@ -619,8 +619,7 @@
       state: 'off'
     light.behind_sofa_leds_segment_008:
       state: 'off'
-    light.behind_sofa
-
+      
 - id: '1736204626976'
   name: Goodnight John boy
   entities:
@@ -663,7 +662,6 @@
       state: 'off'
     light.master_bath_shelf_segment_015:
       state: 'off'
-
     # ─── Master Bedroom TV & LEDs ───
     media_player.master_bedroom_tv:
       state: unavailable
