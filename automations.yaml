@@ -76,38 +76,40 @@
       entity_id: media_player.family_room
       state: 'on'
     then:
-    - target:
-        entity_id: switch.family_room_leds
-      action: switch.turn_on
-    else:
-    - target:
-        entity_id: light.family_room_leds
-      action: light.turn_off
+    - action: switch.turn_on
       data: {}
+      target:
+        device_id: 3eb1e15ffb266f5660ffa4c2c8ef08a9
+    else:
+    - action: light.turn_off
+      data: {}
+      target:
+        device_id: 3eb1e15ffb266f5660ffa4c2c8ef08a9
   mode: single
 - id: '1736201652503'
   alias: Master TV LED's
   description: Turn on master TV LED when TV turns on, else turn off
   triggers:
   - entity_id:
-    - media_player.master_tv_2
+    - media_player.master_tv
     trigger: state
   conditions: []
   actions:
   - if:
     - condition: state
-      entity_id: media_player.master_tv_2
+      entity_id: media_player.master_tv
       state: 'on'
     then:
-    - target:
-        entity_id: light.master_tv_leds
-      data:
+    - data:
         brightness_pct: 95
       action: light.turn_on
+      target:
+        device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
     else:
-    - target:
-        entity_id: light.master_tv_leds
-      action: light.turn_off
+    - action: light.turn_off
+      data: {}
+      target:
+        device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
   mode: single
 - id: '1736202150288'
   alias: Side garage door open
@@ -181,11 +183,13 @@
 - id: '1736202825725'
   alias: Washer is finished running
   description: Announce on speakers when washer finishes
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.washer_finished
-    to: 'on'
-  condition:
+  triggers:
+  - entity_id:
+    - sensor.as348520n_laundry_machine_state
+    trigger: state
+    to: 'Off'
+    from: 'On'
+  conditions:
   - condition: time
     after: 07:00:00
     before: '23:00:00'
@@ -197,17 +201,17 @@
     - thu
     - fri
     - sat
-  action:
-  - service: media_player.volume_set
-    target:
+  actions:
+  - target:
       entity_id: media_player.gh_speaker_group_2
     data:
       volume_level: 0.5
-  - service: tts.cloud_say
-    data:
+    action: media_player.volume_set
+  - data:
       cache: true
       entity_id: media_player.gh_speaker_group_2
       message: The washer has finished running. Please move clothes to the dryer.
+    action: tts.cloud_say
   mode: single
 - id: '1736203243743'
   alias: Let's Relax automation
@@ -226,25 +230,22 @@
   alias: time for bed automation
   description: Runs time for bed scene and delays turning off Kitchen accent light
     for 5 mins
-  trigger:
-  - platform: time
-    at: '23:30:00'
-  - platform: conversation
-    command: Time for bed
-  condition:
+  triggers:
+  - at: '23:30:00'
+    trigger: time
+  - command: Time for bed
+    trigger: conversation
+  conditions:
   - condition: device
     type: is_on
     device_id: 63e3772dc5ae26e489f92824bed0e5b4
     entity_id: e4a2c7de3a7b122aa5d9750619eabdd1
     domain: light
-  action:
-  - service: script.turn_on
+  actions:
+  - action: script.turn_on
+    data: {}
     target:
-      entity_id: script.time_for_bed_script_2
-  - service: scene.turn_on
-    target:
-      entity_id: scene.goodnight_john_boy
-    enabled: false
+      entity_id: script.time_for_bed_script_3
   mode: single
 - id: '1736205770847'
   alias: Play Media when doorbell is pushed
@@ -309,4 +310,164 @@
       message: The dishes are clean
     target:
       entity_id: tts.home_assistant_cloud
+  mode: single
+- id: '1757439538889'
+  alias: Front of house lights on at sunset
+  description: ''
+  use_blueprint:
+    path: CyanAutomation/lights_on_at_sunset.yaml
+    input:
+      target_light:
+        device_id:
+        - 12eb2902fec46e4063b6bca537501535
+        - 235b48bf9f8bbde2f7dd3f26f075965e
+        - bb125b76b148dd38af12452535a4b5c4
+- id: '1757439642812'
+  alias: Fron of House lights off at sunrise
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunrise
+    offset: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 12eb2902fec46e4063b6bca537501535
+    entity_id: 222f830c1d275415369f6c0f867d44de
+    domain: light
+  - type: turn_off
+    device_id: bb125b76b148dd38af12452535a4b5c4
+    entity_id: 938c77cb715fd71ef33b1e3953286b0d
+    domain: light
+  - type: turn_off
+    device_id: 235b48bf9f8bbde2f7dd3f26f075965e
+    entity_id: 63a99f6dc52aab8ffd1440678506e914
+    domain: light
+  mode: single
+- id: '1757439807215'
+  alias: Garage Freezer door open
+  description: ''
+  triggers:
+  - type: opened
+    device_id: ca70f08f74ed5159305440dd9f34e0f1
+    entity_id: 71b639894f45486886bb3388d2c51ff5
+    domain: binary_sensor
+    trigger: device
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  conditions: []
+  actions:
+  - action: media_player.volume_set
+    target:
+      device_id: 9fcdd827660f07c70708b7e1a0c322e9
+    data:
+      volume_level: 0.66
+  - action: tts.cloud_say
+    data:
+      cache: false
+      entity_id: media_player.gh_speaker_group
+      message: The  Garage Freezer door is open, Please close immediately.
+  mode: single
+- id: '1757440249644'
+  alias: Office TV lights
+  description: ''
+  triggers:
+  - type: changed_states
+    device_id: 48ad367b212c4835eb23f074c92f7844
+    entity_id: 9a5317e29cf461131243a9cb93afbcea
+    domain: media_player
+    trigger: device
+  conditions: []
+  actions:
+  - if:
+    - condition: device
+      device_id: 48ad367b212c4835eb23f074c92f7844
+      domain: media_player
+      entity_id: 9a5317e29cf461131243a9cb93afbcea
+      type: is_on
+    then:
+    - type: turn_off
+      device_id: 787cd9b66407e478b1a4796494f2f466
+      entity_id: a3427f003c98307633b30a75729597fc
+      domain: light
+    else:
+    - type: turn_on
+      device_id: 787cd9b66407e478b1a4796494f2f466
+      entity_id: a3427f003c98307633b30a75729597fc
+      domain: light
+  mode: single
+- id: '1757442161116'
+  alias: Bench Light on when dark and motion detected
+  description: ''
+  use_blueprint:
+    path: Blackshome/sensor-light.yaml
+    input:
+      include_state_control: state_control_enabled
+      state_control_activation_state: 'on'
+      state_control_entity: binary_sensor.interior_garage_g3_flex_is_dark
+      motion_trigger:
+      - binary_sensor.interior_garage_g3_flex_motion
+      light_switch:
+        entity_id: switch.bench_lights
+      time_delay: 1
+- id: '1757451967553'
+  alias: Garage Fan Temperature Control
+  description: Turns fan on above 90°F, off below 82°F
+  triggers:
+  - entity_id: weather.williams_s_casa
+    attribute: temperature
+    trigger: state
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: weather.williams_s_casa
+        attribute: temperature
+        above: 90
+      sequence:
+      - target:
+          entity_id: switch.garage_fan
+        action: switch.turn_on
+    - conditions:
+      - condition: numeric_state
+        entity_id: weather.williams_s_casa
+        attribute: temperature
+        below: 82
+      sequence:
+      - target:
+          entity_id: switch.garage_fan
+        action: switch.turn_off
+  mode: single
+- id: '1757453682834'
+  alias: Front Door Motion Boost
+  description: turn on front porch light to full brightness, then restore
+  triggers:
+  - trigger: state
+    entity_id:
+    - switch.g4_doorbell_detections_person
+    to: 'on'
+  conditions:
+  - condition: sun
+    after: sunset
+  actions:
+  - action: script.boost_light_temporarily
+    data: {}
+  mode: single
+- id: '1757454208105'
+  alias: Driveway Motion Boost
+  description: turn on driveway lights to full brightness, then restore
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.driveway_g3_flex_motion
+    to: 'on'
+  conditions:
+  - condition: sun
+    after: sunset
+  actions:
+  - action: script.boost_light_temporarily_driveway
+    data: {}
   mode: single
