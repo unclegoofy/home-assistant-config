@@ -9,9 +9,6 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-# MariaDB recorder
-recorder:
-  db_url: !secret mariadb_url
 
 # HTTP proxy settings
 http:

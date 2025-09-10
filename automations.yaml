@@ -322,6 +322,7 @@
         - 12eb2902fec46e4063b6bca537501535
         - 235b48bf9f8bbde2f7dd3f26f075965e
         - bb125b76b148dd38af12452535a4b5c4
+      target_brightness: 25
 - id: '1757439642812'
   alias: Fron of House lights off at sunrise
   description: ''

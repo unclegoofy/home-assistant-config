@@ -4,9 +4,9 @@
 # Allow these tracked files/folders
 !.gitignore
 !configuration.yaml
-!automations/
-!scripts/
-!scenes/
+#!automations/
+#!scripts/
+#!scenes/
 !automations.yaml
 !scenes.yaml
 !scripts.yaml
