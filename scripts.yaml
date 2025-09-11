@@ -36,25 +36,28 @@ lets_go_home_2:
   alias: Lets go home
   description: ''
 time_for_bed_script_3:
+  alias: time for bed script
+  description: Runs bedtime scene, starts nightlight flashing if garage door is open,
+    then turns off kitchen accent light after 5 minutes
+  icon: mdi:bed
   sequence:
+  - target:
+      entity_id: scene.time_for_bed_scene
+    action: scene.turn_on
   - action: scene.turn_on
     metadata: {}
     data: {}
     target:
-      entity_id: scene.time_for_bed_scene
+      entity_id: scene.time_to_go_home_scene
+  - target:
+      entity_id: script.flash_nightlight_until_garage_closed
+    action: script.turn_on
   - delay:
-      hours: 0
       minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - type: turn_off
-    device_id: 63e3772dc5ae26e489f92824bed0e5b4
-    entity_id: 9ec911ffcece9ac3b5637fb4bd614fd7
-    domain: switch
-  alias: ' time for bed script'
-  description: Works with Google Home — runs bedtime scene and turns off kitchen accent
-    light after 5 minutes
-  icon: mdi:bed
+  - action: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.kitchen_accent_lights_power_switch
 boost_light_temporarily:
   sequence:
   - action: scene.create
@@ -77,7 +80,7 @@ boost_light_temporarily:
     target:
       entity_id: scene.restore_front_door
     data: {}
-  alias: Boost Light Temporarily
+  alias: Boost Light Temporarily Front Door
   description: ''
 boost_light_temporarily_driveway:
   sequence:
@@ -104,3 +107,78 @@ boost_light_temporarily_driveway:
   alias: Boost Light Temporarily Driveway
   description: ''
   fields: {}
+flash_hall_nightlight_until_garage_door_closes:
+  alias: Flash Hall Nightlight Until Garage Door Closes
+  description: Flashes red if garage door is open, then restores previous nightlight
+    state -  called from time for bed scene
+  sequence:
+  - data:
+      scene_id: restore_hall_nightlight
+      snapshot_entities:
+      - light.hall_nightlight_light
+    action: scene.create
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door_opening
+        state: 'on'
+      sequence:
+      - repeat:
+          until:
+          - condition: state
+            entity_id: binary_sensor.side_garage_door_opening
+            state: 'off'
+          sequence:
+          - target:
+              entity_id: light.hall_nightlight_light
+            data:
+              rgb_color:
+              - 255
+              - 0
+              - 0
+              brightness: 200
+            action: light.turn_on
+          - delay:
+              seconds: 1
+          - target:
+              entity_id: light.hall_nightlight_light
+            action: light.turn_off
+          - delay:
+              seconds: 1
+  - target:
+      entity_id: scene.restore_hall_nightlight
+    action: scene.turn_on
+flash_kitchen_nightlight_when_dishes_are_clean:
+  alias: Flash Kitchen Nightlight When Dishes Are Clean
+  description: Flashes kitchen nightlight blue for up to 5 minutes, then restores
+    previous state
+  sequence:
+  - variables:
+      stop_time: '{{ now() + timedelta(minutes=5) }}'
+  - data:
+      scene_id: restore_kitchen_nightlight
+      snapshot_entities:
+      - light.kitchen_nightlight_light
+    action: scene.create
+  - repeat:
+      count: 6
+      sequence:
+      - target:
+          entity_id: light.kitchen_nightlight_light
+        data:
+          brightness: 255
+          rgb_color:
+          - 0
+          - 0
+          - 255
+        action: light.turn_on
+      - delay:
+          seconds: 1
+      - target:
+          entity_id: light.kitchen_nightlight_light
+        action: light.turn_off
+      - delay:
+          seconds: 1
+  - target:
+      entity_id: scene.restore_kitchen_nightlight
+    action: scene.turn_on

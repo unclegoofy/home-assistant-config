@@ -116,72 +116,720 @@
       - 0.372
 - id: '1736196446521'
   name: Time to go home scene
-  icon: mdi:home
   entities:
     light.desk_leds:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 9009
+      min_mireds: 111
+      max_mireds: 500
+      effect_list:
+      - ''
+      - Action
+      - Action-A
+      - Action-B
+      - Action-C
+      - Action-D
+      - Adventure Game
+      - Adventure Game-A
+      - Adventure Game-B
+      - Afternoon
+      - ARRAKIS
+      - Atlantis
+      - Aurora
+      - Aurora-A
+      - Aurora-B
+      - Awaken
+      - Awaken A
+      - Awaken B
+      - Awaken C
+      - Ballet
+      - Ballet-A
+      - Ballet-B
+      - Birthday
+      - Breaking
+      - Breaking-A
+      - Breaking-B
+      - Breathe
+      - Business
+      - Candlelight
+      - Cards Game
+      - Care
+      - Care-A
+      - Care-B
+      - Carnival
+      - Cha-Cha
+      - Cha-Cha-A
+      - Cha-Cha-B
+      - Cheerful
+      - Christmas
+      - Christmas Gift
+      - Christmas Tree
+      - Christmas-A
+      - Christmas-B
+      - Comedies
+      - Cornfield
+      - Cosplay
+      - Crazy
+      - Crossing
+      - Dance Party
+      - Dance Party-A
+      - Dance Party-B
+      - Dancing
+      - Dancing-A
+      - Dancing-B
+      - Dancing-C
+      - Dating
+      - Daze
+      - Deep sea
+      - Desert
+      - Desk
+      - Disco
+      - Disco-A
+      - Disco-B
+      - Documentaries
+      - Downpour
+      - Dramas
+      - Dreamland
+      - Dreamland-A
+      - Dreamland-B
+      - Dreamland-C
+      - Dreamland-D
+      - Dreamland-E
+      - Dreamland-F
+      - Dreamland-G
+      - Dreamlike
+      - Dreamlike-A
+      - Dreamlike-B
+      - Easter
+      - Electro Dance
+      - Electro Dance-A
+      - Electro Dance-B
+      - Electro Dance-C
+      - Electro Dance-D
+      - Electro Dance-E
+      - Energetic
+      - Energetic-A
+      - Energetic-B
+      - Energetic-C
+      - Energetic-D
+      - Enthusiastic
+      - Excited
+      - Excited-A
+      - Excited-B
+      - Excited-C
+      - Fall
+      - Fascination
+      - Father's Day
+      - Fight
+      - Fighting Game
+      - Fighting Game-A
+      - Fighting Game-B
+      - Fire
+      - Fire-A
+      - Fire-B
+      - Fire-C
+      - Fireworks
+      - Fireworks-A
+      - Fireworks-B
+      - Flash
+      - Flow
+      - Flow-A
+      - Flow-B
+      - Flower Field
+      - Flower Field-A
+      - Flower Field-B
+      - Forest
+      - Game
+      - Game-A
+      - Game-B
+      - Game-C
+      - Game-D
+      - Ghost
+      - Ghost-A
+      - Ghost-B
+      - Glacier
+      - Gobi Desert
+      - Halloween
+      - Halloween-A
+      - Halloween-B
+      - Happy
+      - Happy-A
+      - Happy-B
+      - Heartbeat
+      - Heartbeat-A
+      - Heartbeat-B
+      - High
+      - Jazz
+      - Jazz-A
+      - Jazz-B
+      - Karst Cave
+      - Karst Cave-A
+      - Karst Cave-B
+      - Karst Cave-C
+      - Latin Dance
+      - Leisure
+      - Leisure-A
+      - Leisure-B
+      - Lightning
+      - Lightning-A
+      - Lightning-B
+      - Lightning-C
+      - Longing
+      - Mavericks
+      - MDL
+      - Meditation
+      - Meditation-A
+      - Meditation-B
+      - Meditation-C
+      - Meteor
+      - Meteor shower
+      - MFFL
+      - Moonlight
+      - Moonlight-A
+      - Moonlight-B
+      - Morning
+      - Mother's Day
+      - Movie
+      - 'Music: Energic'
+      - 'Music: Rhythm'
+      - 'Music: Rolling'
+      - 'Music: Spectrum'
+      - Mysterious
+      - Mysterious-A
+      - Mysterious-B
+      - New Years
+      - Night
+      - Night-A
+      - Night-B
+      - Party
+      - Party-A
+      - Party-B
+      - Party-C
+      - Pole dance
+      - Pole dance-A
+      - Pole dance-B
+      - Poppin
+      - Poppin-A
+      - Poppin-B
+      - Poppin-C
+      - Poppin-D
+      - Poppin-E
+      - Poppin-F
+      - Poppin-G
+      - Poppin-H
+      - Poppin-I
+      - Profound
+      - Puzzle Game
+      - Puzzle Game-A
+      - Puzzle Game-B
+      - Puzzle Game-C
+      - Puzzle Game-D
+      - Puzzle Game-E
+      - Quiet
+      - Quiet-A
+      - Quiet-B
+      - Racing Game
+      - Racing Game-A
+      - Racing Game-B
+      - Rainbow
+      - Rainbow-A
+      - Rainbow-B
+      - Reading
+      - Release
+      - Release-A
+      - Release-B
+      - Ripple
+      - Romance
+      - Romance-A
+      - Romance-B
+      - Romantic
+      - Rush
+      - Rustling leaves
+      - Science Fiction
+      - Science Fiction-A
+      - Science Fiction-B
+      - Shooting Game
+      - Shooting Game-A
+      - Shooting Game-B
+      - Shooting Game-C
+      - Siren
+      - Siren-A
+      - Siren-B
+      - Sled
+      - Sleep
+      - Sleep-A
+      - Sleep-B
+      - Sleep-C
+      - Snow flake
+      - Snow flake-A
+      - Snow flake-B
+      - Soothing
+      - Soothing-A
+      - Soothing-B
+      - SPICE
+      - Sports
+      - Spring
+      - Stacking
+      - Star
+      - Starry Sky
+      - Street Dance
+      - Street Dance-A
+      - Street Dance-B
+      - Study
+      - Summer
+      - Sunny
+      - Sunny-A
+      - Sunny-B
+      - Sunrise
+      - Sunset
+      - Suspense
+      - Sweet
+      - Swing
+      - Tango
+      - Tension
+      - Tension-A
+      - Tension-B
+      - Thanksgiving
+      - Thrillers
+      - Twinkle
+      - Twinkle-A
+      - Undersea King
+      - Universe
+      - Universe-A
+      - Universe-B
+      - Valentine's Day
+      - Volcano
+      - Volcano-A
+      - Volcano-B
+      - Waltz
+      - Waltz-A
+      - Waltz-B
+      - War Films
+      - War Films-A
+      - War Films-B
+      - Warm
+      - Warm-A
+      - Warm-B
+      - Watermelon
+      - Wave
+      - Wave-A
+      - Wave-B
+      - White Light
+      - Winter
+      - Work
+      supported_color_modes:
+      - color_temp
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:led-strip
+      friendly_name: Desk LEDs
+      supported_features: 44
       state: 'off'
     switch.desk_leds_power_switch:
+      icon: mdi:led-strip-variant
+      friendly_name: Desk LEDS
       state: 'off'
     switch.desk_leds_gradient_toggle:
+      friendly_name: Desk LEDs Gradient Toggle
       state: unknown
     switch.desk_leds_dream_view_toggle:
+      friendly_name: Desk LEDs Dream View Toggle
       state: unknown
     light.desk_leds_segment_001:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 001
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_002:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 002
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_003:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 003
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_004:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 004
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_005:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 005
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_006:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 006
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_007:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 007
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_008:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 008
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_009:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 009
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_010:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 010
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_011:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 011
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_012:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 012
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_013:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 013
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_014:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 014
+      supported_features: 44
       state: 'off'
     light.desk_leds_segment_015:
+      effect_list:
+      supported_color_modes:
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      assumed_state: true
+      friendly_name: Desk LEDs Segment 015
+      supported_features: 44
       state: 'off'
     switch.office_dual_plug_outlet_1:
+      icon: mdi:picture-in-picture-bottom-right
+      friendly_name: Picture lights
       state: 'off'
     switch.office_switch_gd4_outlet_2:
+      friendly_name: Office switch GD4 Outlet 2
       state: 'off'
     switch.office_switch_gd4_outlet_1:
+      friendly_name: Office switch GD4 Outlet 1
       state: 'off'
     media_player.office_roku_tv:
-      state: standby
+      source_list:
+      - Home
+      - AV
+      - Arizona's Family News
+      - CBS Sports Stream & Watch Live
+      - Disney Plus
+      - ESPN
+      - FOX Sports
+      - HDHomeRun
+      - HDMI 1
+      - HDMI 2
+      - HDMI 3 (ARC)
+      - Hulu
+      - Live TV
+      - Netflix
+      - Peacock TV
+      - Plex - Free Movies & TV
+      - Prime Video
+      - Spotify Music
+      - YouTube
+      device_class: tv
+      friendly_name: Office tv
+      supported_features: 151481
+      state: 'off'
     remote.office_roku_tv:
+      friendly_name: Office tv
+      supported_features: 0
       state: 'off'
     select.office_roku_tv_channel:
+      options:
+      - '22.1002'
+      - '22.1008'
+      - ABC15 (15.1)
+      - AZ 61 (61.1)
+      - Ant TV (15.2)
+      - BUSTED (51.4)
+      - Bounce (51.2)
+      - COZI (39.3)
+      - CRIME (39.4)
+      - CourtTV (51.3)
+      - Cozi (5.2)
+      - Crime (12.3)
+      - DABL (5.3)
+      - FOX WX (10.5)
+      - GameSho (51.7)
+      - GetTV (35.3)
+      - Grit (51.6)
+      - Grit (61.2)
+      - HSN (61.4)
+      - Heroes (10.3)
+      - ION (51.1)
+      - IONPlus (51.5)
+      - Inspire (21.3)
+      - KGRX-LD (19.1)
+      - KPHE-HD (44.2)
+      - KPHO-HD (5.1)
+      - KPNX-HD (12.1)
+      - KSAZ-TV (10.1)
+      - KTAZ-DT (39.1)
+      - LAFF TV (15.3)
+      - Merit (21.2)
+      - NEST (12.5)
+      - Nosey (39.6)
+      - ONTV4U (21.4)
+      - Oxygen (39.5)
+      - POSITIV (21.5)
+      - QVC (51.8)
+      - QVC2 (15.5)
+      - Quest (12.4)
+      - Roar (10.4)
+      - Shop LC (5.4)
+      - ShopLC (12.2)
+      - TBN HD (21.1)
+      - TeleX (39.2)
+      friendly_name: Office tv Channel
       state: unknown
     switch.printer_lights_switch:
+      icon: mdi:printer
+      friendly_name: Printer Lights
       state: 'off'
     switch.d828c92274fd_ac_power_status:
-      state: 'on'
+      device_class: switch
+      icon: mdi:power-on
+      friendly_name: D828C92274FD Ac Power Status
+      state: unavailable
     climate.d828c92274fd_climate:
-      state: auto
-      temperature: 81
-      fan_mode: Auto
+      hvac_modes:
+      - 'off'
+      - auto
+      - cool
+      - fan_only
+      min_temp: 64
+      max_temp: 86
+      fan_modes:
+      - Auto
+      - Low
+      - Med
+      - High
+      icon: mdi:air-conditioner
+      friendly_name: Office AC
+      supported_features: 393
+      state: unavailable
     light.cougar_lamp:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      off_with_transition: false
+      off_brightness: 97
+      icon: phu:pendant-cher
+      friendly_name: Cougar Lamp
+      supported_features: 40
       state: 'off'
     light.wine_fridge_lamp:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      off_with_transition: false
+      off_brightness: 181
+      icon: mdi:lamp
+      friendly_name: Wine Fridge Lamp
+      supported_features: 40
       state: 'off'
     light.office_couch_lamp:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      off_with_transition: false
+      off_brightness: 254
+      icon: mdi:lamp
+      friendly_name: Office Couch Lamp
+      supported_features: 40
       state: 'off'
+  icon: mdi:home
+  metadata: {}
 - id: '1736203535543'
   name: Lets Relax Scene
   entities:
@@ -343,6 +991,7 @@
       - Lightning-C
       - Longing
       - Mavericks
+      - MDL
       - Meditation
       - Meditation-A
       - Meditation-B
@@ -521,7 +1170,210 @@
     switch.kitchen_accent_lights_dream_view_toggle:
       friendly_name: Kitchen Accent Lights Dream View Toggle
       state: unknown
-    light.island_led_2:
+    light.mom_s_lamp_light:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 92
+      color_temp_kelvin: 3816
+      color_temp: 262
+      hs_color:
+      - 26.914
+      - 38.308
+      rgb_color:
+      - 255
+      - 201
+      - 157
+      xy_color:
+      - 0.432
+      - 0.368
+      off_with_transition: false
+      off_brightness:
+      icon: mdi:lamp
+      friendly_name: Mom's Lamp Light
+      supported_features: 40
+      state: 'on'
+    switch.fireplace:
+      icon: mdi:fireplace
+      friendly_name: Fireplace
+      state: 'on'
+    light.sofa:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 64
+      color_temp_kelvin: 3816
+      color_temp: 262
+      hs_color:
+      - 26.914
+      - 38.308
+      rgb_color:
+      - 255
+      - 201
+      - 157
+      xy_color:
+      - 0.432
+      - 0.368
+      off_with_transition: false
+      off_brightness:
+      icon: mdi:lamp
+      friendly_name: Sofa
+      supported_features: 40
+      state: 'on'
+    light.family_room_shelves:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 74
+      icon: mdi:light-switch
+      friendly_name: Family Room Shelves
+      supported_features: 0
+      state: 'on'
+    light.loveseat:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 97
+      color_temp_kelvin: 3816
+      color_temp: 262
+      hs_color:
+      - 26.914
+      - 38.308
+      rgb_color:
+      - 255
+      - 201
+      - 157
+      xy_color:
+      - 0.432
+      - 0.368
+      off_with_transition: false
+      off_brightness:
+      icon: mdi:lamp
+      friendly_name: Loveseat
+      supported_features: 40
+      state: 'on'
+    light.master_bed_leds:
+      min_color_temp_kelvin: 2700
+      max_color_temp_kelvin: 6500
+      min_mireds: 153
+      max_mireds: 370
+      effect_list:
+      - Scene
+      - Music
+      - 'off'
+      supported_color_modes:
+      - color_temp
+      - hs
+      effect: 'off'
+      color_mode: hs
+      brightness: 168
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      - 180
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 255
+      xy_color:
+      - 0.151
+      - 0.343
+      icon: mdi:bed
+      friendly_name: Master Bed LEDs
+      supported_features: 4
+      state: 'on'
+    switch.bear_lamp:
+      friendly_name: Bear Lamp
+      state: 'on'
+    light.other_lamp:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 79
+      color_temp_kelvin: 5434
+      color_temp: 184
+      hs_color:
+      - 27.746
+      - 13.648
+      rgb_color:
+      - 255
+      - 236
+      - 220
+      xy_color:
+      - 0.356
+      - 0.344
+      off_with_transition: false
+      off_brightness:
+      icon: mdi:lamp
+      friendly_name: Other Lamp
+      supported_features: 40
+      state: 'on'
+    switch.living_room_plant_shelf:
+      icon: mdi:led-strip
+      friendly_name: Living Room Plant Shelf
+      state: 'on'
+    light.living_room_corner_shelf:
+      min_color_temp_kelvin: 2700
+      max_color_temp_kelvin: 6500
+      min_mireds: 153
+      max_mireds: 370
+      effect_list:
+      - Scene
+      - Music
+      - 'off'
+      supported_color_modes:
+      - color_temp
+      - hs
+      effect: 'off'
+      color_mode: hs
+      brightness: 102
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      - 27
+      - 45
+      rgb_color:
+      - 255
+      - 192
+      - 140
+      xy_color:
+      - 0.455
+      - 0.374
+      icon: mdi:led-strip
+      friendly_name: Living Room Corner Shelf
+      supported_features: 4
+      state: 'on'
+    switch.kitchen_island_lights_dream_view_toggle:
+      friendly_name: Kitchen Island Lights Dream View Toggle
+      state: unknown
+    switch.kitchen_island_lights_gradient_toggle:
+      friendly_name: Kitchen Island Lights Gradient Toggle
+      state: unknown
+    switch.island_led_light:
+      friendly_name: Island LED light
+      state: 'on'
+    light.kitchen_island_lights:
       min_color_temp_kelvin: 2000
       max_color_temp_kelvin: 9009
       min_mireds: 111
@@ -679,6 +1531,7 @@
       - Lightning-C
       - Longing
       - Mavericks
+      - MDL
       - Meditation
       - Meditation-A
       - Meditation-B
@@ -845,19 +1698,16 @@
       - 0.324
       - 0.321
       icon: mdi:led-strip-variant
-      friendly_name: Island LED
+      friendly_name: Kitchen Island Lights
       supported_features: 44
       state: 'on'
-    switch.island_led_power_switch:
-      friendly_name: Island LED light
-      state: 'on'
-    switch.island_led_gradient_toggle:
-      friendly_name: Island LED Gradient Toggle
+    switch.master_bedroom_plant_shelf_dream_view_toggle:
+      friendly_name: Master Bedroom Plant Shelf Dream View Toggle
       state: unknown
-    switch.island_led_dream_view_toggle:
-      friendly_name: Island LED Dream View Toggle
+    switch.master_bedroom_plant_shelf_gradient_toggle:
+      friendly_name: Master Bedroom Plant Shelf Gradient Toggle
       state: unknown
-    light.master_bath_shelf:
+    light.master_bedroom_plant_shelf:
       min_color_temp_kelvin: 2000
       max_color_temp_kelvin: 9009
       min_mireds: 111
@@ -1015,6 +1865,7 @@
       - Lightning-C
       - Longing
       - Mavericks
+      - MDL
       - Meditation
       - Meditation-A
       - Meditation-B
@@ -1181,547 +2032,12 @@
       - 0.401
       - 0.359
       icon: mdi:led-strip-variant
-      friendly_name: Master Bath Shelf
+      friendly_name: Master Bedroom Plant Shelf
       supported_features: 44
       state: 'on'
-    switch.master_bath_shelf_power_switch:
+    switch.master_bedroom_plant_shelf_power_switch:
       icon: mdi:led-strip
-      friendly_name: Master Bath Shelf Power Switch
-      state: 'on'
-    switch.master_bath_shelf_gradient_toggle:
-      friendly_name: Master Bath Shelf Gradient Toggle
-      state: unknown
-    switch.master_bath_shelf_dream_view_toggle:
-      friendly_name: Master Bath Shelf Dream View Toggle
-      state: unknown
-    light.mom_s_lamp_light:
-      min_color_temp_kelvin: 2202
-      max_color_temp_kelvin: 7042
-      min_mireds: 142
-      max_mireds: 454
-      supported_color_modes:
-      - color_temp
-      - xy
-      color_mode: color_temp
-      brightness: 92
-      color_temp_kelvin: 3816
-      color_temp: 262
-      hs_color:
-      - 26.914
-      - 38.308
-      rgb_color:
-      - 255
-      - 201
-      - 157
-      xy_color:
-      - 0.432
-      - 0.368
-      off_with_transition: false
-      off_brightness:
-      icon: mdi:lamp
-      friendly_name: Mom's Lamp Light
-      supported_features: 40
-      state: 'on'
-    light.behind_sofa_leds:
-      min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 9009
-      min_mireds: 111
-      max_mireds: 500
-      effect_list:
-      - ''
-      - Action
-      - Action-A
-      - Action-B
-      - Action-C
-      - Action-D
-      - Adventure Game
-      - Adventure Game-A
-      - Adventure Game-B
-      - Afternoon
-      - ARRAKIS
-      - Atlantis
-      - Aurora
-      - Aurora-A
-      - Aurora-B
-      - Awaken
-      - Awaken A
-      - Awaken B
-      - Awaken C
-      - Ballet
-      - Ballet-A
-      - Ballet-B
-      - Birthday
-      - Breaking
-      - Breaking-A
-      - Breaking-B
-      - Breathe
-      - Business
-      - Candlelight
-      - Cards Game
-      - Care
-      - Care-A
-      - Care-B
-      - Carnival
-      - Cha-Cha
-      - Cha-Cha-A
-      - Cha-Cha-B
-      - Cheerful
-      - Christmas
-      - Christmas Gift
-      - Christmas Tree
-      - Christmas-A
-      - Christmas-B
-      - Comedies
-      - Cornfield
-      - Cosplay
-      - Crazy
-      - Crossing
-      - Dance Party
-      - Dance Party-A
-      - Dance Party-B
-      - Dancing
-      - Dancing-A
-      - Dancing-B
-      - Dancing-C
-      - Dating
-      - Daze
-      - Deep sea
-      - Desert
-      - Disco
-      - Disco-A
-      - Disco-B
-      - Documentaries
-      - Downpour
-      - Dramas
-      - Dreamland
-      - Dreamland-A
-      - Dreamland-B
-      - Dreamland-C
-      - Dreamland-D
-      - Dreamland-E
-      - Dreamland-F
-      - Dreamland-G
-      - Dreamlike
-      - Dreamlike-A
-      - Dreamlike-B
-      - Easter
-      - Electro Dance
-      - Electro Dance-A
-      - Electro Dance-B
-      - Electro Dance-C
-      - Electro Dance-D
-      - Electro Dance-E
-      - Energetic
-      - Energetic-A
-      - Energetic-B
-      - Energetic-C
-      - Energetic-D
-      - Enthusiastic
-      - Excited
-      - Excited-A
-      - Excited-B
-      - Excited-C
-      - Fall
-      - Fascination
-      - Father's Day
-      - Fight
-      - Fighting Game
-      - Fighting Game-A
-      - Fighting Game-B
-      - Fire
-      - Fire-A
-      - Fire-B
-      - Fire-C
-      - Fireworks
-      - Fireworks-A
-      - Fireworks-B
-      - Flash
-      - Flow
-      - Flow-A
-      - Flow-B
-      - Flower Field
-      - Flower Field-A
-      - Flower Field-B
-      - Forest
-      - Game
-      - Game-A
-      - Game-B
-      - Game-C
-      - Game-D
-      - Ghost
-      - Ghost-A
-      - Ghost-B
-      - Glacier
-      - Gobi Desert
-      - Halloween
-      - Halloween-A
-      - Halloween-B
-      - Happy
-      - Happy-A
-      - Happy-B
-      - Heartbeat
-      - Heartbeat-A
-      - Heartbeat-B
-      - High
-      - Jazz
-      - Jazz-A
-      - Jazz-B
-      - Karst Cave
-      - Karst Cave-A
-      - Karst Cave-B
-      - Karst Cave-C
-      - Latin Dance
-      - Leisure
-      - Leisure-A
-      - Leisure-B
-      - Lightning
-      - Lightning-A
-      - Lightning-B
-      - Lightning-C
-      - Longing
-      - Mavericks
-      - Meditation
-      - Meditation-A
-      - Meditation-B
-      - Meditation-C
-      - Meteor
-      - Meteor shower
-      - MFFL
-      - Moonlight
-      - Moonlight-A
-      - Moonlight-B
-      - Morning
-      - Mother's Day
-      - Movie
-      - 'Music: DayAndNight'
-      - 'Music: Energic'
-      - 'Music: Fountain'
-      - 'Music: Hopping'
-      - 'Music: PianoKeys'
-      - 'Music: Rhythm'
-      - 'Music: Rolling'
-      - 'Music: Separation'
-      - 'Music: Shiny'
-      - 'Music: Spectrum'
-      - 'Music: Sprouting'
-      - Mysterious
-      - Mysterious-A
-      - Mysterious-B
-      - New Years
-      - Night
-      - Night-A
-      - Night-B
-      - Party
-      - Party-A
-      - Party-B
-      - Party-C
-      - Pole dance
-      - Pole dance-A
-      - Pole dance-B
-      - Poppin
-      - Poppin-A
-      - Poppin-B
-      - Poppin-C
-      - Poppin-D
-      - Poppin-E
-      - Poppin-F
-      - Poppin-G
-      - Poppin-H
-      - Poppin-I
-      - Profound
-      - Puzzle Game
-      - Puzzle Game-A
-      - Puzzle Game-B
-      - Puzzle Game-C
-      - Puzzle Game-D
-      - Puzzle Game-E
-      - Quiet
-      - Quiet-A
-      - Quiet-B
-      - Racing Game
-      - Racing Game-A
-      - Racing Game-B
-      - Rainbow
-      - Rainbow-A
-      - Rainbow-B
-      - Reading
-      - Release
-      - Release-A
-      - Release-B
-      - Ripple
-      - Romance
-      - Romance-A
-      - Romance-B
-      - Romantic
-      - Rush
-      - Rustling leaves
-      - Science Fiction
-      - Science Fiction-A
-      - Science Fiction-B
-      - Shooting Game
-      - Shooting Game-A
-      - Shooting Game-B
-      - Shooting Game-C
-      - Siren
-      - Siren-A
-      - Siren-B
-      - Sled
-      - Sleep
-      - Sleep-A
-      - Sleep-B
-      - Sleep-C
-      - Snow flake
-      - Snow flake-A
-      - Snow flake-B
-      - Soothing
-      - Soothing-A
-      - Soothing-B
-      - SPICE
-      - Sports
-      - Spring
-      - Stacking
-      - Star
-      - Starry Sky
-      - Street Dance
-      - Street Dance-A
-      - Street Dance-B
-      - Study
-      - Summer
-      - Sunny
-      - Sunny-A
-      - Sunny-B
-      - Sunrise
-      - Sunset
-      - Suspense
-      - Sweet
-      - Swing
-      - Tango
-      - Tension
-      - Tension-A
-      - Tension-B
-      - Thanksgiving
-      - Thrillers
-      - Twinkle
-      - Twinkle-A
-      - Undersea King
-      - Universe
-      - Universe-A
-      - Universe-B
-      - Valentine's Day
-      - Volcano
-      - Volcano-A
-      - Volcano-B
-      - Waltz
-      - Waltz-A
-      - Waltz-B
-      - War Films
-      - War Films-A
-      - War Films-B
-      - Warm
-      - Warm-A
-      - Warm-B
-      - Watermelon
-      - Wave
-      - Wave-A
-      - Wave-B
-      - White Light
-      - Winter
-      - Work
-      supported_color_modes:
-      - color_temp
-      - rgb
-      effect:
-      color_mode: color_temp
-      brightness: 92
-      color_temp_kelvin: 6711
-      color_temp: 149
-      hs_color:
-      - 289.817
-      - 2.567
-      rgb_color:
-      - 254
-      - 248
-      - 255
-      xy_color:
-      - 0.324
-      - 0.321
-      icon: mdi:led-strip-variant
-      friendly_name: Behind Sofa LEDs
-      supported_features: 44
-      state: 'on'
-    switch.behind_sofa_leds_power_switch:
-      friendly_name: Behind Sofa LEDs Power Switch
-      state: 'on'
-    switch.behind_sofa_leds_gradient_toggle:
-      friendly_name: Behind Sofa LEDs Gradient Toggle
-      state: unknown
-    switch.behind_sofa_leds_dream_view_toggle:
-      friendly_name: Behind Sofa LEDs Dream View Toggle
-      state: unknown
-    switch.third_reality_inc_3rsp02028bz_2:
-      icon: mdi:led-strip
-      friendly_name: Plant Shelf
-      state: 'on'
-    switch.fireplace:
-      icon: mdi:fireplace
-      friendly_name: Fireplace
-      state: 'on'
-    light.sofa:
-      min_color_temp_kelvin: 2202
-      max_color_temp_kelvin: 7042
-      min_mireds: 142
-      max_mireds: 454
-      supported_color_modes:
-      - color_temp
-      - xy
-      color_mode: color_temp
-      brightness: 64
-      color_temp_kelvin: 3816
-      color_temp: 262
-      hs_color:
-      - 26.914
-      - 38.308
-      rgb_color:
-      - 255
-      - 201
-      - 157
-      xy_color:
-      - 0.432
-      - 0.368
-      off_with_transition: false
-      off_brightness:
-      icon: mdi:lamp
-      friendly_name: Sofa
-      supported_features: 40
-      state: 'on'
-    light.family_room_shelves:
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 74
-      icon: mdi:light-switch
-      friendly_name: Family Room Shelves
-      supported_features: 0
-      state: 'on'
-    light.other_lamp_light:
-      min_color_temp_kelvin: 2202
-      max_color_temp_kelvin: 7042
-      min_mireds: 142
-      max_mireds: 454
-      supported_color_modes:
-      - color_temp
-      - xy
-      color_mode: color_temp
-      brightness: 92
-      color_temp_kelvin: 5434
-      color_temp: 184
-      hs_color:
-      - 27.746
-      - 13.648
-      rgb_color:
-      - 255
-      - 236
-      - 220
-      xy_color:
-      - 0.356
-      - 0.344
-      off_with_transition: false
-      off_brightness:
-      icon: mdi:lamp
-      friendly_name: Other Lamp Light
-      supported_features: 40
-      state: 'on'
-    light.corner_shelf:
-      min_color_temp_kelvin: 2700
-      max_color_temp_kelvin: 6500
-      min_mireds: 153
-      max_mireds: 370
-      effect_list:
-      - Scene
-      - Music
-      - 'off'
-      supported_color_modes:
-      - color_temp
-      - hs
-      effect: 'off'
-      color_mode: hs
-      brightness: 148
-      color_temp_kelvin:
-      color_temp:
-      hs_color:
-      - 27
-      - 45
-      rgb_color:
-      - 255
-      - 192
-      - 140
-      xy_color:
-      - 0.455
-      - 0.374
-      friendly_name: Corner Shelf
-      supported_features: 4
-      state: 'on'
-    light.loveseat:
-      min_color_temp_kelvin: 2202
-      max_color_temp_kelvin: 7042
-      min_mireds: 142
-      max_mireds: 454
-      supported_color_modes:
-      - color_temp
-      - xy
-      color_mode: color_temp
-      brightness: 97
-      color_temp_kelvin: 3816
-      color_temp: 262
-      hs_color:
-      - 26.914
-      - 38.308
-      rgb_color:
-      - 255
-      - 201
-      - 157
-      xy_color:
-      - 0.432
-      - 0.368
-      off_with_transition: false
-      off_brightness:
-      icon: mdi:lamp
-      friendly_name: Loveseat
-      supported_features: 40
-      state: 'on'
-    light.master_bed_leds:
-      min_color_temp_kelvin: 2700
-      max_color_temp_kelvin: 6500
-      min_mireds: 153
-      max_mireds: 370
-      effect_list:
-      - Scene
-      - Music
-      - 'off'
-      supported_color_modes:
-      - color_temp
-      - hs
-      effect: 'off'
-      color_mode: hs
-      brightness: 168
-      color_temp_kelvin:
-      color_temp:
-      hs_color:
-      - 180
-      - 100
-      rgb_color:
-      - 0
-      - 255
-      - 255
-      xy_color:
-      - 0.151
-      - 0.343
-      icon: mdi:bed
-      friendly_name: Master Bed LEDs
-      supported_features: 4
-      state: 'on'
-    switch.bear_lamp:
-      friendly_name: Bear Lamp
+      friendly_name: Master Bedroom Plant Shelf Power Switch
       state: 'on'
   metadata: {}
 - &id001
@@ -1749,356 +2065,6 @@
       friendly_name: Mom's Lamp Light
       supported_features: 40
       state: 'off'
-    light.other_lamp_light:
-      min_color_temp_kelvin: 2202
-      max_color_temp_kelvin: 7042
-      min_mireds: 142
-      max_mireds: 454
-      supported_color_modes:
-      - color_temp
-      - xy
-      color_mode:
-      brightness:
-      color_temp_kelvin:
-      color_temp:
-      hs_color:
-      rgb_color:
-      xy_color:
-      off_with_transition: false
-      off_brightness: 92
-      icon: mdi:lamp
-      friendly_name: Other Lamp Light
-      supported_features: 40
-      state: 'off'
-    light.behind_sofa_leds:
-      min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 9009
-      min_mireds: 111
-      max_mireds: 500
-      effect_list:
-      - ''
-      - Action
-      - Action-A
-      - Action-B
-      - Action-C
-      - Action-D
-      - Adventure Game
-      - Adventure Game-A
-      - Adventure Game-B
-      - Afternoon
-      - ARRAKIS
-      - Atlantis
-      - Aurora
-      - Aurora-A
-      - Aurora-B
-      - Awaken
-      - Awaken A
-      - Awaken B
-      - Awaken C
-      - Ballet
-      - Ballet-A
-      - Ballet-B
-      - Birthday
-      - Breaking
-      - Breaking-A
-      - Breaking-B
-      - Breathe
-      - Business
-      - Candlelight
-      - Cards Game
-      - Care
-      - Care-A
-      - Care-B
-      - Carnival
-      - Cha-Cha
-      - Cha-Cha-A
-      - Cha-Cha-B
-      - Cheerful
-      - Christmas
-      - Christmas Gift
-      - Christmas Tree
-      - Christmas-A
-      - Christmas-B
-      - Comedies
-      - Cornfield
-      - Cosplay
-      - Crazy
-      - Crossing
-      - Dance Party
-      - Dance Party-A
-      - Dance Party-B
-      - Dancing
-      - Dancing-A
-      - Dancing-B
-      - Dancing-C
-      - Dating
-      - Daze
-      - Deep sea
-      - Desert
-      - Disco
-      - Disco-A
-      - Disco-B
-      - Documentaries
-      - Downpour
-      - Dramas
-      - Dreamland
-      - Dreamland-A
-      - Dreamland-B
-      - Dreamland-C
-      - Dreamland-D
-      - Dreamland-E
-      - Dreamland-F
-      - Dreamland-G
-      - Dreamlike
-      - Dreamlike-A
-      - Dreamlike-B
-      - Easter
-      - Electro Dance
-      - Electro Dance-A
-      - Electro Dance-B
-      - Electro Dance-C
-      - Electro Dance-D
-      - Electro Dance-E
-      - Energetic
-      - Energetic-A
-      - Energetic-B
-      - Energetic-C
-      - Energetic-D
-      - Enthusiastic
-      - Excited
-      - Excited-A
-      - Excited-B
-      - Excited-C
-      - Fall
-      - Fascination
-      - Father's Day
-      - Fight
-      - Fighting Game
-      - Fighting Game-A
-      - Fighting Game-B
-      - Fire
-      - Fire-A
-      - Fire-B
-      - Fire-C
-      - Fireworks
-      - Fireworks-A
-      - Fireworks-B
-      - Flash
-      - Flow
-      - Flow-A
-      - Flow-B
-      - Flower Field
-      - Flower Field-A
-      - Flower Field-B
-      - Forest
-      - Game
-      - Game-A
-      - Game-B
-      - Game-C
-      - Game-D
-      - Ghost
-      - Ghost-A
-      - Ghost-B
-      - Glacier
-      - Gobi Desert
-      - Halloween
-      - Halloween-A
-      - Halloween-B
-      - Happy
-      - Happy-A
-      - Happy-B
-      - Heartbeat
-      - Heartbeat-A
-      - Heartbeat-B
-      - High
-      - Jazz
-      - Jazz-A
-      - Jazz-B
-      - Karst Cave
-      - Karst Cave-A
-      - Karst Cave-B
-      - Karst Cave-C
-      - Latin Dance
-      - Leisure
-      - Leisure-A
-      - Leisure-B
-      - Lightning
-      - Lightning-A
-      - Lightning-B
-      - Lightning-C
-      - Longing
-      - Mavericks
-      - Meditation
-      - Meditation-A
-      - Meditation-B
-      - Meditation-C
-      - Meteor
-      - Meteor shower
-      - MFFL
-      - Moonlight
-      - Moonlight-A
-      - Moonlight-B
-      - Morning
-      - Mother's Day
-      - Movie
-      - 'Music: DayAndNight'
-      - 'Music: Energic'
-      - 'Music: Fountain'
-      - 'Music: Hopping'
-      - 'Music: PianoKeys'
-      - 'Music: Rhythm'
-      - 'Music: Rolling'
-      - 'Music: Separation'
-      - 'Music: Shiny'
-      - 'Music: Spectrum'
-      - 'Music: Sprouting'
-      - Mysterious
-      - Mysterious-A
-      - Mysterious-B
-      - New Years
-      - Night
-      - Night-A
-      - Night-B
-      - Party
-      - Party-A
-      - Party-B
-      - Party-C
-      - Pole dance
-      - Pole dance-A
-      - Pole dance-B
-      - Poppin
-      - Poppin-A
-      - Poppin-B
-      - Poppin-C
-      - Poppin-D
-      - Poppin-E
-      - Poppin-F
-      - Poppin-G
-      - Poppin-H
-      - Poppin-I
-      - Profound
-      - Puzzle Game
-      - Puzzle Game-A
-      - Puzzle Game-B
-      - Puzzle Game-C
-      - Puzzle Game-D
-      - Puzzle Game-E
-      - Quiet
-      - Quiet-A
-      - Quiet-B
-      - Racing Game
-      - Racing Game-A
-      - Racing Game-B
-      - Rainbow
-      - Rainbow-A
-      - Rainbow-B
-      - Reading
-      - Release
-      - Release-A
-      - Release-B
-      - Ripple
-      - Romance
-      - Romance-A
-      - Romance-B
-      - Romantic
-      - Rush
-      - Rustling leaves
-      - Science Fiction
-      - Science Fiction-A
-      - Science Fiction-B
-      - Shooting Game
-      - Shooting Game-A
-      - Shooting Game-B
-      - Shooting Game-C
-      - Siren
-      - Siren-A
-      - Siren-B
-      - Sled
-      - Sleep
-      - Sleep-A
-      - Sleep-B
-      - Sleep-C
-      - Snow flake
-      - Snow flake-A
-      - Snow flake-B
-      - Soothing
-      - Soothing-A
-      - Soothing-B
-      - SPICE
-      - Sports
-      - Spring
-      - Stacking
-      - Star
-      - Starry Sky
-      - Street Dance
-      - Street Dance-A
-      - Street Dance-B
-      - Study
-      - Summer
-      - Sunny
-      - Sunny-A
-      - Sunny-B
-      - Sunrise
-      - Sunset
-      - Suspense
-      - Sweet
-      - Swing
-      - Tango
-      - Tension
-      - Tension-A
-      - Tension-B
-      - Thanksgiving
-      - Thrillers
-      - Twinkle
-      - Twinkle-A
-      - Undersea King
-      - Universe
-      - Universe-A
-      - Universe-B
-      - Valentine's Day
-      - Volcano
-      - Volcano-A
-      - Volcano-B
-      - Waltz
-      - Waltz-A
-      - Waltz-B
-      - War Films
-      - War Films-A
-      - War Films-B
-      - Warm
-      - Warm-A
-      - Warm-B
-      - Watermelon
-      - Wave
-      - Wave-A
-      - Wave-B
-      - White Light
-      - Winter
-      - Work
-      supported_color_modes:
-      - color_temp
-      - rgb
-      icon: mdi:led-strip-variant
-      supported_features: 44
-      friendly_name: Behind Sofa LEDs
-      effect:
-      color_mode:
-      brightness:
-      color_temp_kelvin:
-      color_temp:
-      hs_color:
-      rgb_color:
-      xy_color:
-      state: 'off'
-    switch.behind_sofa_leds_power_switch:
-      friendly_name: Behind Sofa LEDs Power Switch
-      state: 'off'
-    switch.behind_sofa_leds_gradient_toggle:
-      friendly_name: Behind Sofa LEDs Gradient Toggle
-      state: unknown
-    switch.behind_sofa_leds_dream_view_toggle:
-      friendly_name: Behind Sofa LEDs Dream View Toggle
-      state: unknown
     light.family_room_shelves:
       supported_color_modes:
       - brightness
@@ -2111,29 +2077,6 @@
     switch.fireplace:
       icon: mdi:fireplace
       friendly_name: Fireplace
-      state: 'off'
-    light.corner_shelf:
-      min_color_temp_kelvin: 2700
-      max_color_temp_kelvin: 6500
-      min_mireds: 153
-      max_mireds: 370
-      effect_list:
-      - Scene
-      - Music
-      - 'off'
-      supported_color_modes:
-      - color_temp
-      - hs
-      effect:
-      color_mode:
-      brightness:
-      color_temp_kelvin:
-      color_temp:
-      hs_color:
-      rgb_color:
-      xy_color:
-      friendly_name: Corner Shelf
-      supported_features: 4
       state: 'off'
     light.sofa:
       min_color_temp_kelvin: 2202
@@ -2177,11 +2120,7 @@
       friendly_name: Loveseat
       supported_features: 40
       state: 'off'
-    switch.third_reality_inc_3rsp02028bz_2:
-      icon: mdi:led-strip
-      friendly_name: Plant Shelf
-      state: 'off'
-    light.island_led_2:
+    light.family_room_behind_sofa_leds:
       min_color_temp_kelvin: 2000
       max_color_temp_kelvin: 9009
       min_mireds: 111
@@ -2339,6 +2278,7 @@
       - Lightning-C
       - Longing
       - Mavericks
+      - MDL
       - Meditation
       - Meditation-A
       - Meditation-B
@@ -2489,9 +2429,6 @@
       supported_color_modes:
       - color_temp
       - rgb
-      icon: mdi:led-strip-variant
-      supported_features: 44
-      friendly_name: Island LED
       effect:
       color_mode:
       brightness:
@@ -2500,561 +2437,414 @@
       hs_color:
       rgb_color:
       xy_color:
+      icon: mdi:led-strip-variant
+      friendly_name: Family Room Behind Sofa LEDs
+      supported_features: 44
       state: 'off'
-    switch.island_led_power_switch:
+    switch.family_room_behind_sofa_leds_dream_view_toggle:
+      friendly_name: Family Room Behind Sofa LEDs Dream View Toggle
+      state: unknown
+    switch.family_room_behind_sofa_leds_gradient_toggle:
+      friendly_name: Family Room Behind Sofa LEDs Gradient Toggle
+      state: unknown
+    switch.family_room_behind_sofa_leds_power_switch:
+      friendly_name: Family Room Behind Sofa LEDs Power Switch
+      state: 'off'
+    light.living_room_corner_shelf:
+      min_color_temp_kelvin: 2700
+      max_color_temp_kelvin: 6500
+      min_mireds: 153
+      max_mireds: 370
+      effect_list:
+      - Scene
+      - Music
+      - 'off'
+      supported_color_modes:
+      - color_temp
+      - hs
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:led-strip
+      friendly_name: Living Room Corner Shelf
+      supported_features: 4
+      state: 'off'
+    light.other_lamp:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 7042
+      min_mireds: 142
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      off_with_transition: false
+      off_brightness: 79
+      icon: mdi:lamp
+      friendly_name: Other Lamp
+      supported_features: 40
+      state: 'off'
+    switch.kitchen_undercounter_switch:
+      icon: mdi:led-strip
+      friendly_name: Undercounter Lights
+      state: 'off'
+    switch.living_room_scentsy:
+      friendly_name: Living Room Scentsy
+      state: 'off'
+    switch.kitchen_island_lights_dream_view_toggle:
+      friendly_name: Kitchen Island Lights Dream View Toggle
+      state: unknown
+    switch.kitchen_island_lights_gradient_toggle:
+      friendly_name: Kitchen Island Lights Gradient Toggle
+      state: unknown
+    switch.island_led_light:
       friendly_name: Island LED light
       state: 'off'
-    switch.island_led_gradient_toggle:
-      friendly_name: Island LED Gradient Toggle
-      state: unknown
-    switch.island_led_dream_view_toggle:
-      friendly_name: Island LED Dream View Toggle
-      state: unknown
+    light.kitchen_island_lights:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 9009
+      min_mireds: 111
+      max_mireds: 500
+      effect_list:
+      - ''
+      - Action
+      - Action-A
+      - Action-B
+      - Action-C
+      - Action-D
+      - Adventure Game
+      - Adventure Game-A
+      - Adventure Game-B
+      - Afternoon
+      - ARRAKIS
+      - Atlantis
+      - Aurora
+      - Aurora-A
+      - Aurora-B
+      - Awaken
+      - Awaken A
+      - Awaken B
+      - Awaken C
+      - Ballet
+      - Ballet-A
+      - Ballet-B
+      - Birthday
+      - Breaking
+      - Breaking-A
+      - Breaking-B
+      - Breathe
+      - Business
+      - Candlelight
+      - Cards Game
+      - Care
+      - Care-A
+      - Care-B
+      - Carnival
+      - Cha-Cha
+      - Cha-Cha-A
+      - Cha-Cha-B
+      - Cheerful
+      - Christmas
+      - Christmas Gift
+      - Christmas Tree
+      - Christmas-A
+      - Christmas-B
+      - Comedies
+      - Cornfield
+      - Cosplay
+      - Crazy
+      - Crossing
+      - Dance Party
+      - Dance Party-A
+      - Dance Party-B
+      - Dancing
+      - Dancing-A
+      - Dancing-B
+      - Dancing-C
+      - Dating
+      - Daze
+      - Deep sea
+      - Desert
+      - Disco
+      - Disco-A
+      - Disco-B
+      - Documentaries
+      - Downpour
+      - Dramas
+      - Dreamland
+      - Dreamland-A
+      - Dreamland-B
+      - Dreamland-C
+      - Dreamland-D
+      - Dreamland-E
+      - Dreamland-F
+      - Dreamland-G
+      - Dreamlike
+      - Dreamlike-A
+      - Dreamlike-B
+      - Easter
+      - Electro Dance
+      - Electro Dance-A
+      - Electro Dance-B
+      - Electro Dance-C
+      - Electro Dance-D
+      - Electro Dance-E
+      - Energetic
+      - Energetic-A
+      - Energetic-B
+      - Energetic-C
+      - Energetic-D
+      - Enthusiastic
+      - Excited
+      - Excited-A
+      - Excited-B
+      - Excited-C
+      - Fall
+      - Fascination
+      - Father's Day
+      - Fight
+      - Fighting Game
+      - Fighting Game-A
+      - Fighting Game-B
+      - Fire
+      - Fire-A
+      - Fire-B
+      - Fire-C
+      - Fireworks
+      - Fireworks-A
+      - Fireworks-B
+      - Flash
+      - Flow
+      - Flow-A
+      - Flow-B
+      - Flower Field
+      - Flower Field-A
+      - Flower Field-B
+      - Forest
+      - Game
+      - Game-A
+      - Game-B
+      - Game-C
+      - Game-D
+      - Ghost
+      - Ghost-A
+      - Ghost-B
+      - Glacier
+      - Gobi Desert
+      - Halloween
+      - Halloween-A
+      - Halloween-B
+      - Happy
+      - Happy-A
+      - Happy-B
+      - Heartbeat
+      - Heartbeat-A
+      - Heartbeat-B
+      - High
+      - Jazz
+      - Jazz-A
+      - Jazz-B
+      - Karst Cave
+      - Karst Cave-A
+      - Karst Cave-B
+      - Karst Cave-C
+      - Latin Dance
+      - Leisure
+      - Leisure-A
+      - Leisure-B
+      - Lightning
+      - Lightning-A
+      - Lightning-B
+      - Lightning-C
+      - Longing
+      - Mavericks
+      - MDL
+      - Meditation
+      - Meditation-A
+      - Meditation-B
+      - Meditation-C
+      - Meteor
+      - Meteor shower
+      - MFFL
+      - Moonlight
+      - Moonlight-A
+      - Moonlight-B
+      - Morning
+      - Mother's Day
+      - Movie
+      - 'Music: DayAndNight'
+      - 'Music: Energic'
+      - 'Music: Fountain'
+      - 'Music: Hopping'
+      - 'Music: PianoKeys'
+      - 'Music: Rhythm'
+      - 'Music: Rolling'
+      - 'Music: Separation'
+      - 'Music: Shiny'
+      - 'Music: Spectrum'
+      - 'Music: Sprouting'
+      - Mysterious
+      - Mysterious-A
+      - Mysterious-B
+      - New Years
+      - Night
+      - Night-A
+      - Night-B
+      - Party
+      - Party-A
+      - Party-B
+      - Party-C
+      - Pole dance
+      - Pole dance-A
+      - Pole dance-B
+      - Poppin
+      - Poppin-A
+      - Poppin-B
+      - Poppin-C
+      - Poppin-D
+      - Poppin-E
+      - Poppin-F
+      - Poppin-G
+      - Poppin-H
+      - Poppin-I
+      - Profound
+      - Puzzle Game
+      - Puzzle Game-A
+      - Puzzle Game-B
+      - Puzzle Game-C
+      - Puzzle Game-D
+      - Puzzle Game-E
+      - Quiet
+      - Quiet-A
+      - Quiet-B
+      - Racing Game
+      - Racing Game-A
+      - Racing Game-B
+      - Rainbow
+      - Rainbow-A
+      - Rainbow-B
+      - Reading
+      - Release
+      - Release-A
+      - Release-B
+      - Ripple
+      - Romance
+      - Romance-A
+      - Romance-B
+      - Romantic
+      - Rush
+      - Rustling leaves
+      - Science Fiction
+      - Science Fiction-A
+      - Science Fiction-B
+      - Shooting Game
+      - Shooting Game-A
+      - Shooting Game-B
+      - Shooting Game-C
+      - Siren
+      - Siren-A
+      - Siren-B
+      - Sled
+      - Sleep
+      - Sleep-A
+      - Sleep-B
+      - Sleep-C
+      - Snow flake
+      - Snow flake-A
+      - Snow flake-B
+      - Soothing
+      - Soothing-A
+      - Soothing-B
+      - SPICE
+      - Sports
+      - Spring
+      - Stacking
+      - Star
+      - Starry Sky
+      - Street Dance
+      - Street Dance-A
+      - Street Dance-B
+      - Study
+      - Summer
+      - Sunny
+      - Sunny-A
+      - Sunny-B
+      - Sunrise
+      - Sunset
+      - Suspense
+      - Sweet
+      - Swing
+      - Tango
+      - Tension
+      - Tension-A
+      - Tension-B
+      - Thanksgiving
+      - Thrillers
+      - Twinkle
+      - Twinkle-A
+      - Undersea King
+      - Universe
+      - Universe-A
+      - Universe-B
+      - Valentine's Day
+      - Volcano
+      - Volcano-A
+      - Volcano-B
+      - Waltz
+      - Waltz-A
+      - Waltz-B
+      - War Films
+      - War Films-A
+      - War Films-B
+      - Warm
+      - Warm-A
+      - Warm-B
+      - Watermelon
+      - Wave
+      - Wave-A
+      - Wave-B
+      - White Light
+      - Winter
+      - Work
+      supported_color_modes:
+      - color_temp
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:led-strip-variant
+      friendly_name: Kitchen Island Lights
+      supported_features: 44
+      state: 'off'
+    switch.garage_lights:
+      icon: mdi:lightbulb-fluorescent-tube
+      friendly_name: Garage Lights
+      state: 'off'
+    switch.kitchen_sink:
+      icon: mdi:light-recessed
+      friendly_name: Sink Light
+      state: 'off'
   metadata: {}
 - *id001
 - id: '1736204626976'
   name: Goodnight John boy
   entities:
-    light.master_bath_shelf:
-      min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 9009
-      min_mireds: 111
-      max_mireds: 500
-      effect_list:
-      - ''
-      - Action
-      - Action-A
-      - Action-B
-      - Action-C
-      - Action-D
-      - Adventure Game
-      - Adventure Game-A
-      - Adventure Game-B
-      - Afternoon
-      - ARRAKIS
-      - Atlantis
-      - Aurora
-      - Aurora-A
-      - Aurora-B
-      - Awaken
-      - Awaken A
-      - Awaken B
-      - Awaken C
-      - Ballet
-      - Ballet-A
-      - Ballet-B
-      - Birthday
-      - Breaking
-      - Breaking-A
-      - Breaking-B
-      - Breathe
-      - Business
-      - Candlelight
-      - Cards Game
-      - Care
-      - Care-A
-      - Care-B
-      - Carnival
-      - Cha-Cha
-      - Cha-Cha-A
-      - Cha-Cha-B
-      - Cheerful
-      - Christmas
-      - Christmas Gift
-      - Christmas Tree
-      - Christmas-A
-      - Christmas-B
-      - Comedies
-      - Cornfield
-      - Cosplay
-      - Crazy
-      - Crossing
-      - Dance Party
-      - Dance Party-A
-      - Dance Party-B
-      - Dancing
-      - Dancing-A
-      - Dancing-B
-      - Dancing-C
-      - Dating
-      - Daze
-      - Deep sea
-      - Desert
-      - Disco
-      - Disco-A
-      - Disco-B
-      - Documentaries
-      - Downpour
-      - Dramas
-      - Dreamland
-      - Dreamland-A
-      - Dreamland-B
-      - Dreamland-C
-      - Dreamland-D
-      - Dreamland-E
-      - Dreamland-F
-      - Dreamland-G
-      - Dreamlike
-      - Dreamlike-A
-      - Dreamlike-B
-      - Easter
-      - Electro Dance
-      - Electro Dance-A
-      - Electro Dance-B
-      - Electro Dance-C
-      - Electro Dance-D
-      - Electro Dance-E
-      - Energetic
-      - Energetic-A
-      - Energetic-B
-      - Energetic-C
-      - Energetic-D
-      - Enthusiastic
-      - Excited
-      - Excited-A
-      - Excited-B
-      - Excited-C
-      - Fall
-      - Fascination
-      - Father's Day
-      - Fight
-      - Fighting Game
-      - Fighting Game-A
-      - Fighting Game-B
-      - Fire
-      - Fire-A
-      - Fire-B
-      - Fire-C
-      - Fireworks
-      - Fireworks-A
-      - Fireworks-B
-      - Flash
-      - Flow
-      - Flow-A
-      - Flow-B
-      - Flower Field
-      - Flower Field-A
-      - Flower Field-B
-      - Forest
-      - Game
-      - Game-A
-      - Game-B
-      - Game-C
-      - Game-D
-      - Ghost
-      - Ghost-A
-      - Ghost-B
-      - Glacier
-      - Gobi Desert
-      - Halloween
-      - Halloween-A
-      - Halloween-B
-      - Happy
-      - Happy-A
-      - Happy-B
-      - Heartbeat
-      - Heartbeat-A
-      - Heartbeat-B
-      - High
-      - Jazz
-      - Jazz-A
-      - Jazz-B
-      - Karst Cave
-      - Karst Cave-A
-      - Karst Cave-B
-      - Karst Cave-C
-      - Latin Dance
-      - Leisure
-      - Leisure-A
-      - Leisure-B
-      - Lightning
-      - Lightning-A
-      - Lightning-B
-      - Lightning-C
-      - Longing
-      - Mavericks
-      - Meditation
-      - Meditation-A
-      - Meditation-B
-      - Meditation-C
-      - Meteor
-      - Meteor shower
-      - MFFL
-      - Moonlight
-      - Moonlight-A
-      - Moonlight-B
-      - Morning
-      - Mother's Day
-      - Movie
-      - 'Music: DayAndNight'
-      - 'Music: Energic'
-      - 'Music: Fountain'
-      - 'Music: Hopping'
-      - 'Music: PianoKeys'
-      - 'Music: Rhythm'
-      - 'Music: Rolling'
-      - 'Music: Separation'
-      - 'Music: Shiny'
-      - 'Music: Spectrum'
-      - 'Music: Sprouting'
-      - Mysterious
-      - Mysterious-A
-      - Mysterious-B
-      - New Years
-      - Night
-      - Night-A
-      - Night-B
-      - Party
-      - Party-A
-      - Party-B
-      - Party-C
-      - Pole dance
-      - Pole dance-A
-      - Pole dance-B
-      - Poppin
-      - Poppin-A
-      - Poppin-B
-      - Poppin-C
-      - Poppin-D
-      - Poppin-E
-      - Poppin-F
-      - Poppin-G
-      - Poppin-H
-      - Poppin-I
-      - Profound
-      - Puzzle Game
-      - Puzzle Game-A
-      - Puzzle Game-B
-      - Puzzle Game-C
-      - Puzzle Game-D
-      - Puzzle Game-E
-      - Quiet
-      - Quiet-A
-      - Quiet-B
-      - Racing Game
-      - Racing Game-A
-      - Racing Game-B
-      - Rainbow
-      - Rainbow-A
-      - Rainbow-B
-      - Reading
-      - Release
-      - Release-A
-      - Release-B
-      - Ripple
-      - Romance
-      - Romance-A
-      - Romance-B
-      - Romantic
-      - Rush
-      - Rustling leaves
-      - Science Fiction
-      - Science Fiction-A
-      - Science Fiction-B
-      - Shooting Game
-      - Shooting Game-A
-      - Shooting Game-B
-      - Shooting Game-C
-      - Siren
-      - Siren-A
-      - Siren-B
-      - Sled
-      - Sleep
-      - Sleep-A
-      - Sleep-B
-      - Sleep-C
-      - Snow flake
-      - Snow flake-A
-      - Snow flake-B
-      - Soothing
-      - Soothing-A
-      - Soothing-B
-      - SPICE
-      - Sports
-      - Spring
-      - Stacking
-      - Star
-      - Starry Sky
-      - Street Dance
-      - Street Dance-A
-      - Street Dance-B
-      - Study
-      - Summer
-      - Sunny
-      - Sunny-A
-      - Sunny-B
-      - Sunrise
-      - Sunset
-      - Suspense
-      - Sweet
-      - Swing
-      - Tango
-      - Tension
-      - Tension-A
-      - Tension-B
-      - Thanksgiving
-      - Thrillers
-      - Twinkle
-      - Twinkle-A
-      - Undersea King
-      - Universe
-      - Universe-A
-      - Universe-B
-      - Valentine's Day
-      - Volcano
-      - Volcano-A
-      - Volcano-B
-      - Waltz
-      - Waltz-A
-      - Waltz-B
-      - War Films
-      - War Films-A
-      - War Films-B
-      - Warm
-      - Warm-A
-      - Warm-B
-      - Watermelon
-      - Wave
-      - Wave-A
-      - Wave-B
-      - White Light
-      - Winter
-      - Work
-      supported_color_modes:
-      - color_temp
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      color_temp_kelvin:
-      color_temp:
-      hs_color:
-      rgb_color:
-      xy_color:
-      icon: mdi:led-strip-variant
-      friendly_name: Master Bath Shelf
-      supported_features: 44
-      state: 'off'
-    switch.master_bath_shelf_power_switch:
-      icon: mdi:led-strip
-      friendly_name: Master Bath Shelf Power Switch
-      state: 'off'
-    switch.master_bath_shelf_gradient_toggle:
-      friendly_name: Master Bath Shelf Gradient Toggle
-      state: unknown
-    switch.master_bath_shelf_dream_view_toggle:
-      friendly_name: Master Bath Shelf Dream View Toggle
-      state: unknown
-    light.master_bath_shelf_segment_001:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 001
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_002:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 002
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_003:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 003
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_004:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 004
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_005:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 005
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_006:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 006
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_007:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 007
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_008:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 008
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_009:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 009
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_010:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 010
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_011:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 011
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_012:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 012
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_013:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 013
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_014:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 014
-      supported_features: 44
-      state: 'off'
-    light.master_bath_shelf_segment_015:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master Bath Shelf Segment 015
-      supported_features: 44
-      state: 'off'
     light.master_tv_leds:
       min_color_temp_kelvin: 2000
       max_color_temp_kelvin: 9009
@@ -3213,6 +3003,7 @@
       - Lightning-C
       - Longing
       - Mavericks
+      - MDL
       - Meditation
       - Meditation-A
       - Meditation-B
@@ -3377,224 +3168,6 @@
     switch.master_tv_leds_dream_view_toggle:
       friendly_name: Master TV LEDs Dream View Toggle
       state: unknown
-    light.master_tv_leds_segment_001:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 001
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_002:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 002
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_003:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 003
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_004:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 004
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_005:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 005
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_006:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 006
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_007:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 007
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_008:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 008
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_009:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 009
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_010:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 010
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_011:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 011
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_012:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 012
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_013:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 013
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_014:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 014
-      supported_features: 44
-      state: 'off'
-    light.master_tv_leds_segment_015:
-      effect_list:
-      supported_color_modes:
-      - rgb
-      effect:
-      color_mode:
-      brightness:
-      hs_color:
-      rgb_color:
-      xy_color:
-      assumed_state: true
-      friendly_name: Master TV LEDs Segment 015
-      supported_features: 44
-      state: 'off'
-    switch.dual_nightstand_lights_outlet_1:
-      icon: mdi:lamp
-      friendly_name: Roxanne's Lamp
-      state: 'off'
-    switch.dual_nightstand_lights_outlet_2:
-      icon: mdi:lamp
-      friendly_name: Ken's Lamp
-      state: 'off'
     switch.scentsy_switch:
       icon: mdi:scent
       friendly_name: Scentsy
@@ -3626,7 +3199,355 @@
       friendly_name: Master Bed LEDs
       supported_features: 4
       state: 'off'
-  metadata: {}
+    switch.nightstand_lights:
+      device_class: outlet
+      icon: mdi:lamps
+      friendly_name: Nightstand Lights
+      state: 'off'
+    switch.kens_lamp:
+      device_class: outlet
+      icon: mdi:lamp
+      friendly_name: Kens Lamp
+      state: 'off'
+    switch.roxannes_lamp:
+      device_class: outlet
+      icon: mdi:lamp
+      friendly_name: Roxannes Lamp
+      state: 'off'
+    switch.master_bedroom_plant_shelf_dream_view_toggle:
+      friendly_name: Master Bedroom Plant Shelf Dream View Toggle
+      state: unknown
+    switch.master_bedroom_plant_shelf_gradient_toggle:
+      friendly_name: Master Bedroom Plant Shelf Gradient Toggle
+      state: unknown
+    light.master_bedroom_plant_shelf:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 9009
+      min_mireds: 111
+      max_mireds: 500
+      effect_list:
+      - ''
+      - Action
+      - Action-A
+      - Action-B
+      - Action-C
+      - Action-D
+      - Adventure Game
+      - Adventure Game-A
+      - Adventure Game-B
+      - Afternoon
+      - ARRAKIS
+      - Atlantis
+      - Aurora
+      - Aurora-A
+      - Aurora-B
+      - Awaken
+      - Awaken A
+      - Awaken B
+      - Awaken C
+      - Ballet
+      - Ballet-A
+      - Ballet-B
+      - Birthday
+      - Breaking
+      - Breaking-A
+      - Breaking-B
+      - Breathe
+      - Business
+      - Candlelight
+      - Cards Game
+      - Care
+      - Care-A
+      - Care-B
+      - Carnival
+      - Cha-Cha
+      - Cha-Cha-A
+      - Cha-Cha-B
+      - Cheerful
+      - Christmas
+      - Christmas Gift
+      - Christmas Tree
+      - Christmas-A
+      - Christmas-B
+      - Comedies
+      - Cornfield
+      - Cosplay
+      - Crazy
+      - Crossing
+      - Dance Party
+      - Dance Party-A
+      - Dance Party-B
+      - Dancing
+      - Dancing-A
+      - Dancing-B
+      - Dancing-C
+      - Dating
+      - Daze
+      - Deep sea
+      - Desert
+      - Disco
+      - Disco-A
+      - Disco-B
+      - Documentaries
+      - Downpour
+      - Dramas
+      - Dreamland
+      - Dreamland-A
+      - Dreamland-B
+      - Dreamland-C
+      - Dreamland-D
+      - Dreamland-E
+      - Dreamland-F
+      - Dreamland-G
+      - Dreamlike
+      - Dreamlike-A
+      - Dreamlike-B
+      - Easter
+      - Electro Dance
+      - Electro Dance-A
+      - Electro Dance-B
+      - Electro Dance-C
+      - Electro Dance-D
+      - Electro Dance-E
+      - Energetic
+      - Energetic-A
+      - Energetic-B
+      - Energetic-C
+      - Energetic-D
+      - Enthusiastic
+      - Excited
+      - Excited-A
+      - Excited-B
+      - Excited-C
+      - Fall
+      - Fascination
+      - Father's Day
+      - Fight
+      - Fighting Game
+      - Fighting Game-A
+      - Fighting Game-B
+      - Fire
+      - Fire-A
+      - Fire-B
+      - Fire-C
+      - Fireworks
+      - Fireworks-A
+      - Fireworks-B
+      - Flash
+      - Flow
+      - Flow-A
+      - Flow-B
+      - Flower Field
+      - Flower Field-A
+      - Flower Field-B
+      - Forest
+      - Game
+      - Game-A
+      - Game-B
+      - Game-C
+      - Game-D
+      - Ghost
+      - Ghost-A
+      - Ghost-B
+      - Glacier
+      - Gobi Desert
+      - Halloween
+      - Halloween-A
+      - Halloween-B
+      - Happy
+      - Happy-A
+      - Happy-B
+      - Heartbeat
+      - Heartbeat-A
+      - Heartbeat-B
+      - High
+      - Jazz
+      - Jazz-A
+      - Jazz-B
+      - Karst Cave
+      - Karst Cave-A
+      - Karst Cave-B
+      - Karst Cave-C
+      - Latin Dance
+      - Leisure
+      - Leisure-A
+      - Leisure-B
+      - Lightning
+      - Lightning-A
+      - Lightning-B
+      - Lightning-C
+      - Longing
+      - Mavericks
+      - MDL
+      - Meditation
+      - Meditation-A
+      - Meditation-B
+      - Meditation-C
+      - Meteor
+      - Meteor shower
+      - MFFL
+      - Moonlight
+      - Moonlight-A
+      - Moonlight-B
+      - Morning
+      - Mother's Day
+      - Movie
+      - 'Music: DayAndNight'
+      - 'Music: Energic'
+      - 'Music: Fountain'
+      - 'Music: Hopping'
+      - 'Music: PianoKeys'
+      - 'Music: Rhythm'
+      - 'Music: Rolling'
+      - 'Music: Separation'
+      - 'Music: Shiny'
+      - 'Music: Spectrum'
+      - 'Music: Sprouting'
+      - Mysterious
+      - Mysterious-A
+      - Mysterious-B
+      - New Years
+      - Night
+      - Night-A
+      - Night-B
+      - Party
+      - Party-A
+      - Party-B
+      - Party-C
+      - Pole dance
+      - Pole dance-A
+      - Pole dance-B
+      - Poppin
+      - Poppin-A
+      - Poppin-B
+      - Poppin-C
+      - Poppin-D
+      - Poppin-E
+      - Poppin-F
+      - Poppin-G
+      - Poppin-H
+      - Poppin-I
+      - Profound
+      - Puzzle Game
+      - Puzzle Game-A
+      - Puzzle Game-B
+      - Puzzle Game-C
+      - Puzzle Game-D
+      - Puzzle Game-E
+      - Quiet
+      - Quiet-A
+      - Quiet-B
+      - Racing Game
+      - Racing Game-A
+      - Racing Game-B
+      - Rainbow
+      - Rainbow-A
+      - Rainbow-B
+      - Reading
+      - Release
+      - Release-A
+      - Release-B
+      - Ripple
+      - Romance
+      - Romance-A
+      - Romance-B
+      - Romantic
+      - Rush
+      - Rustling leaves
+      - Science Fiction
+      - Science Fiction-A
+      - Science Fiction-B
+      - Shooting Game
+      - Shooting Game-A
+      - Shooting Game-B
+      - Shooting Game-C
+      - Siren
+      - Siren-A
+      - Siren-B
+      - Sled
+      - Sleep
+      - Sleep-A
+      - Sleep-B
+      - Sleep-C
+      - Snow flake
+      - Snow flake-A
+      - Snow flake-B
+      - Soothing
+      - Soothing-A
+      - Soothing-B
+      - SPICE
+      - Sports
+      - Spring
+      - Stacking
+      - Star
+      - Starry Sky
+      - Street Dance
+      - Street Dance-A
+      - Street Dance-B
+      - Study
+      - Summer
+      - Sunny
+      - Sunny-A
+      - Sunny-B
+      - Sunrise
+      - Sunset
+      - Suspense
+      - Sweet
+      - Swing
+      - Tango
+      - Tension
+      - Tension-A
+      - Tension-B
+      - Thanksgiving
+      - Thrillers
+      - Twinkle
+      - Twinkle-A
+      - Undersea King
+      - Universe
+      - Universe-A
+      - Universe-B
+      - Valentine's Day
+      - Volcano
+      - Volcano-A
+      - Volcano-B
+      - Waltz
+      - Waltz-A
+      - Waltz-B
+      - War Films
+      - War Films-A
+      - War Films-B
+      - Warm
+      - Warm-A
+      - Warm-B
+      - Watermelon
+      - Wave
+      - Wave-A
+      - Wave-B
+      - White Light
+      - Winter
+      - Work
+      supported_color_modes:
+      - color_temp
+      - rgb
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:led-strip-variant
+      friendly_name: Master Bedroom Plant Shelf
+      supported_features: 44
+      state: 'off'
+    switch.master_bedroom_plant_shelf_power_switch:
+      icon: mdi:led-strip
+      friendly_name: Master Bedroom Plant Shelf Power Switch
+      state: 'off'
+  metadata:
+    switch.nightstand_lights:
+      entity_only: true
 - id: '1740331759321'
   name: Movie mode
   entities:

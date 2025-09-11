@@ -44,72 +44,86 @@
 - id: '1736201001617'
   alias: Pantry Light on/off
   description: Turns on or off the Pantry light depending on state of door sensor
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.pantry_door
-  condition: []
-  action:
-  - if:
-    - condition: state
-      entity_id: binary_sensor.pantry_door
-      state: 'on'
-    then:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.pantry_light
-    else:
-    - service: switch.turn_off
-      target:
-        entity_id: switch.pantry_light
-  mode: single
-- id: '1736201460884'
-  alias: Family Room LED's
-  description: Turn on LED's if TV is turned on, and turn off if not on
   triggers:
   - entity_id:
-    - media_player.family_room
+    - binary_sensor.pantry_door_opening
     trigger: state
+    to:
+    from:
   conditions: []
   actions:
   - if:
     - condition: state
-      entity_id: media_player.family_room
+      entity_id: binary_sensor.pantry_door_opening
       state: 'on'
     then:
     - action: switch.turn_on
       data: {}
       target:
-        device_id: 3eb1e15ffb266f5660ffa4c2c8ef08a9
+        device_id: 9c6123c4d1b9823b2545b66aaaf8570e
     else:
-    - action: light.turn_off
+    - action: switch.turn_off
       data: {}
       target:
+        device_id: 9c6123c4d1b9823b2545b66aaaf8570e
+  mode: single
+- id: '1736201460884'
+  alias: Family Room LED's
+  description: Turn on LED's if TV is turned on, and turn off if not on
+  triggers:
+  - type: changed_states
+    device_id: 9d81494c52d6e78ab4255bea9b9b1890
+    entity_id: 62bd6831ee73004336f0c134ff408550
+    domain: media_player
+    trigger: device
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: media_player.family_room_tv
+        state: 'on'
+      sequence:
+      - type: turn_on
         device_id: 3eb1e15ffb266f5660ffa4c2c8ef08a9
+        entity_id: 5ecb1cc9813959c67d7ce875ebd0fa7c
+        domain: switch
+      - type: turn_on
+        device_id: 3eb1e15ffb266f5660ffa4c2c8ef08a9
+        entity_id: 5978eb2137178b6e00d2db9b37241c2b
+        domain: switch
+    default:
+    - type: turn_off
+      device_id: 3eb1e15ffb266f5660ffa4c2c8ef08a9
+      entity_id: 5ecb1cc9813959c67d7ce875ebd0fa7c
+      domain: switch
   mode: single
 - id: '1736201652503'
   alias: Master TV LED's
   description: Turn on master TV LED when TV turns on, else turn off
   triggers:
-  - entity_id:
-    - media_player.master_tv
+  - entity_id: media_player.master_tv
+    to:
+    - 'on'
+    - 'off'
     trigger: state
   conditions: []
   actions:
-  - if:
-    - condition: state
-      entity_id: media_player.master_tv
-      state: 'on'
-    then:
-    - data:
-        brightness_pct: 95
-      action: light.turn_on
-      target:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: media_player.master_tv
+        state: 'on'
+      sequence:
+      - target:
+          device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
+        data:
+          brightness_pct: 95
+        action: light.turn_on
+    default:
+    - target:
         device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
-    else:
-    - action: light.turn_off
-      data: {}
-      target:
-        device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
+      action: light.turn_off
   mode: single
 - id: '1736202150288'
   alias: Side garage door open
@@ -276,13 +290,12 @@
   mode: single
 - id: '1757427938275'
   alias: Dishwasher has finished running
-  description: ''
+  description: Announces clean dishes and flashes kitchen nightlight
   triggers:
-  - trigger: state
-    entity_id:
-    - select.dishwasher
+  - entity_id: select.dishwasher
     from: run
     to: stop
+    trigger: state
   conditions:
   - condition: time
     after: 08:00:00
@@ -296,20 +309,22 @@
     - fri
     - sat
   actions:
-  - action: media_player.volume_set
-    metadata: {}
+  - target:
+      device_id: 7cbe28bcdd27f103770c14fbf19bb82b
     data:
       volume_level: 0.5
-    target:
-      device_id: 7cbe28bcdd27f103770c14fbf19bb82b
-  - action: tts.speak
-    metadata: {}
+    action: media_player.volume_set
+  - target:
+      entity_id: tts.home_assistant_cloud
     data:
       cache: true
       media_player_entity_id: media_player.gh_speaker_group_2
       message: The dishes are clean
+    action: tts.speak
+  - action: script.turn_on
+    data: {}
     target:
-      entity_id: tts.home_assistant_cloud
+      entity_id: script.flash_kitchen_nightlight_when_dishes_are_clean
   mode: single
 - id: '1757439538889'
   alias: Front of house lights on at sunset
@@ -324,7 +339,7 @@
         - bb125b76b148dd38af12452535a4b5c4
       target_brightness: 25
 - id: '1757439642812'
-  alias: Fron of House lights off at sunrise
+  alias: Front of House lights off at sunrise
   description: ''
   triggers:
   - trigger: sun
@@ -382,22 +397,23 @@
     trigger: device
   conditions: []
   actions:
-  - if:
-    - condition: device
-      device_id: 48ad367b212c4835eb23f074c92f7844
-      domain: media_player
-      entity_id: 9a5317e29cf461131243a9cb93afbcea
-      type: is_on
-    then:
-    - type: turn_off
-      device_id: 787cd9b66407e478b1a4796494f2f466
-      entity_id: a3427f003c98307633b30a75729597fc
-      domain: light
-    else:
-    - type: turn_on
-      device_id: 787cd9b66407e478b1a4796494f2f466
-      entity_id: a3427f003c98307633b30a75729597fc
-      domain: light
+  - choose:
+    - conditions:
+      - condition: device
+        device_id: 48ad367b212c4835eb23f074c92f7844
+        domain: media_player
+        entity_id: 9a5317e29cf461131243a9cb93afbcea
+        type: is_playing
+      sequence:
+      - type: turn_off
+        device_id: 787cd9b66407e478b1a4796494f2f466
+        entity_id: a3427f003c98307633b30a75729597fc
+        domain: light
+    default:
+    - action: light.turn_on
+      data: {}
+      target:
+        device_id: 787cd9b66407e478b1a4796494f2f466
   mode: single
 - id: '1757442161116'
   alias: Bench Light on when dark and motion detected
