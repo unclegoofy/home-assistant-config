@@ -41,17 +41,19 @@ time_for_bed_script_3:
     then turns off kitchen accent light after 5 minutes
   icon: mdi:bed
   sequence:
-  - target:
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
       entity_id: scene.time_for_bed_scene
-    action: scene.turn_on
   - action: scene.turn_on
     metadata: {}
     data: {}
     target:
       entity_id: scene.time_to_go_home_scene
-  - target:
-      entity_id: script.flash_nightlight_until_garage_closed
-    action: script.turn_on
+  - action: script.flash_hall_nightlight_until_garage_door_closes
+    metadata: {}
+    data: {}
   - delay:
       minutes: 5
   - action: switch.turn_off
@@ -59,10 +61,12 @@ time_for_bed_script_3:
     target:
       entity_id: switch.kitchen_accent_lights_power_switch
 boost_light_temporarily:
+  alias: Boost Light Temporarily Front Door
+  description: ''
   sequence:
   - action: scene.create
     data:
-      scene_id: scene.restore_front_door
+      scene_id: restore_front_door
       snapshot_entities:
       - light.front_door_light
   - action: light.turn_on
@@ -71,42 +75,10 @@ boost_light_temporarily:
     data:
       brightness_pct: 100
       color_temp_kelvin: 6500
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
+  - delay: 00:02:00
   - action: scene.turn_on
     target:
       entity_id: scene.restore_front_door
-    data: {}
-  alias: Boost Light Temporarily Front Door
-  description: ''
-boost_light_temporarily_driveway:
-  sequence:
-  - action: scene.create
-    data:
-      scene_id: scene.restore_driveway_lights
-      snapshot_entities:
-      - light.driveway_lights
-  - action: light.turn_on
-    data:
-      brightness_pct: 100
-      color_temp_kelvin: 6500
-    target:
-      entity_id: light.driveway_lights
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - action: scene.turn_on
-    data: {}
-    target:
-      entity_id: scene.restore_driveway_lights
-  alias: Boost Light Temporarily Driveway
-  description: ''
-  fields: {}
 flash_hall_nightlight_until_garage_door_closes:
   alias: Flash Hall Nightlight Until Garage Door Closes
   description: Flashes red if garage door is open, then restores previous nightlight
@@ -182,3 +154,23 @@ flash_kitchen_nightlight_when_dishes_are_clean:
   - target:
       entity_id: scene.restore_kitchen_nightlight
     action: scene.turn_on
+boost_light_temporarily_driveway_lights:
+  sequence:
+  - action: scene.create
+    data:
+      scene_id: restore_driveway_lights
+      snapshot_entities:
+      - light.driveway_lights
+  - action: light.turn_on
+    data:
+      brightness_pct: 100
+      color_temp_kelvin: 6500
+    target:
+      entity_id: light.driveway_lights
+  - delay: 00:02:00
+  - action: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.restore_driveway_lights
+  alias: Boost Light Temporarily Driveway Lights
+  description: ''
