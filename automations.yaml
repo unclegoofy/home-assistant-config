@@ -1,26 +1,29 @@
 - id: '1736200159144'
   alias: Turn On Fish Lights
   description: Turns on the Fish Tank lights at 6:30 am
-  trigger:
-  - platform: time
-    at: 06:30:00
-  condition: []
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.office_dual_plug_outlet_2
+  triggers:
+  - at: 06:30:00
+    trigger: time
+  conditions: []
+  actions:
+  - target:
+      entity_id:
+      - switch.fish_tank
+    action: switch.turn_on
+    data: {}
   mode: single
 - id: '1736200267958'
   alias: Turn Off Fish Lights
   description: Turn Off Fish Lights at 7:30 pm
-  trigger:
-  - platform: time
-    at: '19:30:00'
-  condition: []
-  action:
-  - service: switch.turn_off
+  triggers:
+  - at: '19:30:00'
+    trigger: time
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    data: {}
     target:
-      entity_id: switch.office_dual_plug_outlet_2
+      entity_id: switch.fish_tank
   mode: single
 - id: '1736200586902'
   alias: Turn on office for work
@@ -102,11 +105,11 @@
   alias: Master TV LED's
   description: Turn on master TV LED when TV turns on, else turn off
   triggers:
-  - entity_id: media_player.master_tv
-    to:
-    - 'on'
-    - 'off'
-    trigger: state
+  - type: changed_states
+    device_id: f20fc61cd6683f5e70b2e311302e8ae1
+    entity_id: 93954116b4ec2cfcc7ed6716c3b71079
+    domain: media_player
+    trigger: device
   conditions: []
   actions:
   - choose:
@@ -124,15 +127,16 @@
     - target:
         device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
       action: light.turn_off
+      data: {}
   mode: single
 - id: '1736202150288'
   alias: Side garage door open
   description: If Side Garage door opens after 9:30 PM, flash hall night light red;
-    turn off when closed
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.side_garage_door
-  condition:
+    return to light blue at 50% when closed
+  triggers:
+  - entity_id: binary_sensor.side_garage_door
+    trigger: state
+  conditions:
   - condition: time
     after: '21:30:00'
     weekday:
@@ -143,34 +147,46 @@
     - thu
     - fri
     - sat
-  action:
-  - if:
-    - condition: state
-      entity_id: binary_sensor.side_garage_door
-      state: 'on'
-    then:
-    - service: light.turn_on
-      target:
-        entity_id: light.hall_night_light
-      data:
-        rgb_color:
-        - 242
-        - 7
-        - 7
-        flash: short
-    else:
-    - service: light.turn_off
-      target:
-        entity_id: light.hall_night_light
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'on'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 242
+          - 7
+          - 7
+          flash: short
+        action: light.turn_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'off'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 173
+          - 216
+          - 230
+          brightness_pct: 50
+        action: light.turn_on
   mode: single
 - id: '1736202452093'
   alias: Dryer has finished running
   description: Announce on speakers when dryer finishes
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.dryer_finished
-    to: 'on'
-  condition:
+  triggers:
+  - entity_id: binary_sensor.dryer_remote_status
+    from: 'on'
+    to: 'off'
+    trigger: state
+  conditions:
   - condition: time
     after: 07:00:00
     before: '23:00:00'
@@ -182,27 +198,26 @@
     - fri
     - sat
     - sun
-  action:
-  - service: media_player.volume_set
-    target:
-      entity_id: media_player.gh_speaker_group_2
+  actions:
+  - target:
+      device_id: 2bb886d6e9807e3973f0378a059d2100
     data:
-      volume_level: 0.5
-  - service: tts.cloud_say
-    data:
+      volume_level: 0.75
+    action: media_player.volume_set
+  - data:
       cache: false
-      entity_id: media_player.gh_speaker_group_2
+      entity_id: media_player.gh_ha_all_speakers
       message: The Dryer has finished running.
+    action: tts.cloud_say
   mode: single
 - id: '1736202825725'
   alias: Washer is finished running
   description: Announce on speakers when washer finishes
   triggers:
-  - entity_id:
-    - sensor.as348520n_laundry_machine_state
+  - entity_id: binary_sensor.washer_remote_status
+    from: 'on'
+    to: 'off'
     trigger: state
-    to: 'Off'
-    from: 'On'
   conditions:
   - condition: time
     after: 07:00:00
@@ -217,38 +232,36 @@
     - sat
   actions:
   - target:
-      entity_id: media_player.gh_speaker_group_2
+      device_id: 2bb886d6e9807e3973f0378a059d2100
     data:
-      volume_level: 0.5
+      volume_level: 0.75
     action: media_player.volume_set
   - data:
       cache: true
-      entity_id: media_player.gh_speaker_group_2
+      entity_id: media_player.gh_ha_all_speakers
       message: The washer has finished running. Please move clothes to the dryer.
     action: tts.cloud_say
   mode: single
 - id: '1736203243743'
-  alias: Let's Relax automation
+  alias: Let's Relax
   description: ''
-  trigger:
-  - platform: sun
-    event: sunset
+  triggers:
+  - event: sunset
     offset: '-300'
-  condition: []
-  action:
-  - service: scene.turn_on
-    target:
+    trigger: sun
+  conditions: []
+  actions:
+  - target:
       entity_id: scene.lets_relax_scene
+    action: scene.turn_on
   mode: single
 - id: '1736205456810'
-  alias: time for bed automation
+  alias: Time for Bed
   description: Runs time for bed scene and delays turning off Kitchen accent light
     for 5 mins
   triggers:
   - at: '23:30:00'
     trigger: time
-  - command: Time for bed
-    trigger: conversation
   conditions:
   - condition: device
     type: is_on
@@ -264,29 +277,34 @@
 - id: '1736205770847'
   alias: Play Media when doorbell is pushed
   description: Plays doorbell sound on speaker when motion is detected
-  trigger:
-  - platform: device
-    type: occupied
+  triggers:
+  - type: occupied
     device_id: 01c1ddd4016a5da445a3002653c9624b
-    entity_id: binary_sensor.doorbell_motion
+    entity_id: 9fb24bad40c10c2347807ec9424e0f08
     domain: binary_sensor
-  condition:
+    trigger: device
+  conditions:
   - condition: time
     after: 07:00:00
     before: '21:00:00'
-  action:
-  - service: media_player.volume_set
-    target:
-      entity_id: media_player.gh_speaker_group_2
+  actions:
+  - target:
+      device_id: 112dc83284137f5753a360ff1b508e15
     data:
       volume_level: 0.75
-  - service: media_player.play_media
-    target:
-      entity_id: media_player.gh_speaker_group_2
+    action: media_player.volume_set
+  - target:
+      device_id:
+      - 112dc83284137f5753a360ff1b508e15
     data:
-      media_content_id: media-source://media_source/local/Doorbell/Someone knocking
-        on the door.mp3
-      media_content_type: audio/mpeg
+      enqueue: add
+      metadata: {}
+      media:
+        media_content_id: media-source://media_source/local/Doorbell/Someone knocking
+          on the door.mp3
+        media_content_type: audio/mpeg
+        metadata: {}
+    action: media_player.play_media
   mode: single
 - id: '1757427938275'
   alias: Dishwasher has finished running
@@ -310,7 +328,7 @@
     - sat
   actions:
   - target:
-      device_id: 7cbe28bcdd27f103770c14fbf19bb82b
+      device_id: 2bb886d6e9807e3973f0378a059d2100
     data:
       volume_level: 0.5
     action: media_player.volume_set
@@ -318,13 +336,13 @@
       entity_id: tts.home_assistant_cloud
     data:
       cache: true
-      media_player_entity_id: media_player.gh_speaker_group_2
+      media_player_entity_id: media_player.gh_ha_all_speakers
       message: The dishes are clean
     action: tts.speak
-  - action: script.turn_on
-    data: {}
-    target:
+  - target:
       entity_id: script.flash_kitchen_nightlight_when_dishes_are_clean
+    data: {}
+    action: script.turn_on
   mode: single
 - id: '1757439538889'
   alias: Front of house lights on at sunset
@@ -339,7 +357,7 @@
         - bb125b76b148dd38af12452535a4b5c4
       target_brightness: 25
 - id: '1757439642812'
-  alias: Front of House lights off at sunrise
+  alias: Front of House Lights OFF at Sunrise
   description: ''
   triggers:
   - trigger: sun
@@ -368,52 +386,73 @@
     device_id: ca70f08f74ed5159305440dd9f34e0f1
     entity_id: 71b639894f45486886bb3388d2c51ff5
     domain: binary_sensor
-    trigger: device
     for:
       hours: 0
       minutes: 2
       seconds: 0
-  conditions: []
-  actions:
-  - action: media_player.volume_set
-    target:
-      device_id: 9fcdd827660f07c70708b7e1a0c322e9
-    data:
-      volume_level: 0.66
-  - action: tts.cloud_say
-    data:
-      cache: false
-      entity_id: media_player.gh_speaker_group
-      message: The  Garage Freezer door is open, Please close immediately.
-  mode: single
-- id: '1757440249644'
-  alias: Office TV lights
-  description: ''
-  triggers:
-  - type: changed_states
-    device_id: 48ad367b212c4835eb23f074c92f7844
-    entity_id: 9a5317e29cf461131243a9cb93afbcea
-    domain: media_player
     trigger: device
   conditions: []
   actions:
+  - target:
+      device_id: 2bb886d6e9807e3973f0378a059d2100
+    data:
+      volume_level: 0.66
+    action: media_player.volume_set
+  - data:
+      cache: false
+      entity_id: media_player.gh_ha_all_speakers
+      message: The Garage Freezer door is open. Please close it immediately.
+    action: tts.cloud_say
+  mode: single
+- id: '1757440249644'
+  alias: Office TV - Couch Light Sync
+  description: Couch light turns purple when TV is playing, white when idle or off
+  triggers:
+  - entity_id: media_player.office_roku_tv
+    to: playing
+    trigger: state
+  - entity_id: media_player.office_roku_tv
+    to: idle
+    trigger: state
+  - entity_id: media_player.office_roku_tv
+    to: 'off'
+    trigger: state
+  actions:
   - choose:
     - conditions:
-      - condition: device
-        device_id: 48ad367b212c4835eb23f074c92f7844
-        domain: media_player
-        entity_id: 9a5317e29cf461131243a9cb93afbcea
-        type: is_playing
+      - condition: state
+        entity_id: media_player.office_roku_tv
+        state: playing
       sequence:
-      - type: turn_off
-        device_id: 787cd9b66407e478b1a4796494f2f466
-        entity_id: a3427f003c98307633b30a75729597fc
-        domain: light
-    default:
-    - action: light.turn_on
-      data: {}
-      target:
-        device_id: 787cd9b66407e478b1a4796494f2f466
+      - target:
+          entity_id: light.office_couch_lamp
+        data:
+          rgb_color:
+          - 75
+          - 0
+          - 130
+          brightness: 180
+        action: light.turn_on
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: media_player.office_roku_tv
+          state: idle
+        - condition: state
+          entity_id: media_player.office_roku_tv
+          state: 'off'
+      sequence:
+      - target:
+          entity_id: light.office_couch_lamp
+        data:
+          rgb_color:
+          - 255
+          - 255
+          - 255
+          brightness: 220
+          color_temp_kelvin: 4168
+        action: light.turn_on
   mode: single
 - id: '1757442161116'
   alias: Bench Light on when dark and motion detected
@@ -460,12 +499,11 @@
   mode: single
 - id: '1757453682834'
   alias: Front Door Motion Boost
-  description: turn on front porch light to full brightness, then restore
+  description: Turn on front porch light to full brightness, then restore
   triggers:
-  - trigger: state
-    entity_id:
-    - switch.g4_doorbell_detections_person
+  - entity_id: switch.g4_doorbell_detections_person
     to: 'on'
+    trigger: state
   conditions:
   - condition: sun
     after: sunset
@@ -485,6 +523,55 @@
   - condition: sun
     after: sunset
   actions:
-  - action: script.boost_light_temporarily_driveway
+  - action: script.boost_light_temporarily_driveway_lights
     data: {}
+  mode: single
+- id: '1757644001455'
+  alias: Side garage door open
+  description: If Side Garage door opens after 9:30 PM, flash hall night light red;
+    return to light blue at 50% when closed
+  triggers:
+  - entity_id: binary_sensor.side_garage_door
+    trigger: state
+  conditions:
+  - condition: time
+    after: '21:30:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'on'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 242
+          - 7
+          - 7
+          flash: short
+        action: light.turn_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'off'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 173
+          - 216
+          - 230
+          brightness_pct: 50
+        action: light.turn_on
   mode: single
