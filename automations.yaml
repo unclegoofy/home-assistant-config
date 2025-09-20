@@ -132,11 +132,11 @@
 - id: '1736202150288'
   alias: Side garage door open
   description: If Side Garage door opens after 9:30 PM, flash hall night light red;
-    turn off when closed
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.side_garage_door
-  condition:
+    return to light blue at 50% when closed
+  triggers:
+  - entity_id: binary_sensor.side_garage_door
+    trigger: state
+  conditions:
   - condition: time
     after: '21:30:00'
     weekday:
@@ -147,35 +147,53 @@
     - thu
     - fri
     - sat
-  action:
-  - if:
-    - condition: state
-      entity_id: binary_sensor.side_garage_door
-      state: 'on'
-    then:
-    - service: light.turn_on
-      target:
-        entity_id: light.hall_night_light
-      data:
-        rgb_color:
-        - 242
-        - 7
-        - 7
-        flash: short
-    else:
-    - service: light.turn_off
-      target:
-        entity_id: light.hall_night_light
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'on'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 242
+          - 7
+          - 7
+          flash: short
+        action: light.turn_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'off'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 173
+          - 216
+          - 230
+          brightness_pct: 50
+        action: light.turn_on
   mode: single
 - id: '1736202452093'
   alias: Dryer has finished running
   description: Announce on speakers when dryer finishes
   triggers:
+<<<<<<< HEAD
   - entity_id:
     - sensor.dryer_machine_state
     trigger: state
     from: 'On'
     to: 'Off'
+=======
+  - entity_id: binary_sensor.dryer_remote_status
+    from: 'on'
+    to: 'off'
+    trigger: state
+>>>>>>> e9374e6 (updated automations)
   conditions:
   - condition: time
     after: 07:00:00
@@ -189,11 +207,19 @@
     - sat
     - sun
   actions:
+<<<<<<< HEAD
   - data:
       volume_level: 0.5
     action: media_player.volume_set
     target:
       device_id: 2bb886d6e9807e3973f0378a059d2100
+=======
+  - target:
+      device_id: 2bb886d6e9807e3973f0378a059d2100
+    data:
+      volume_level: 0.75
+    action: media_player.volume_set
+>>>>>>> e9374e6 (updated automations)
   - data:
       cache: false
       entity_id: media_player.gh_ha_all_speakers
@@ -204,11 +230,15 @@
   alias: Washer is finished running
   description: Announce on speakers when washer finishes
   triggers:
+<<<<<<< HEAD
   - entity_id:
     - sensor.dishwasher_machine_state
+=======
+  - entity_id: binary_sensor.washer_remote_status
+    from: 'on'
+    to: 'off'
+>>>>>>> e9374e6 (updated automations)
     trigger: state
-    to: 'Off'
-    from: 'On'
   conditions:
   - condition: time
     after: 07:00:00
@@ -222,8 +252,15 @@
     - fri
     - sat
   actions:
+<<<<<<< HEAD
   - data:
       volume_level: 0.5
+=======
+  - target:
+      device_id: 2bb886d6e9807e3973f0378a059d2100
+    data:
+      volume_level: 0.75
+>>>>>>> e9374e6 (updated automations)
     action: media_player.volume_set
     target:
       device_id: 2bb886d6e9807e3973f0378a059d2100
@@ -271,7 +308,7 @@
   triggers:
   - type: occupied
     device_id: 01c1ddd4016a5da445a3002653c9624b
-    entity_id: binary_sensor.doorbell_motion
+    entity_id: 9fb24bad40c10c2347807ec9424e0f08
     domain: binary_sensor
     trigger: device
   conditions:
@@ -279,6 +316,7 @@
     after: 07:00:00
     before: '21:00:00'
   actions:
+<<<<<<< HEAD
   - data:
       volume_level: 0.75
     action: media_player.volume_set
@@ -289,12 +327,28 @@
       - 8618887208e1a4bfba2758455d4547f9
       - 112dc83284137f5753a360ff1b508e15
     data:
+=======
+  - target:
+      device_id: 112dc83284137f5753a360ff1b508e15
+    data:
+      volume_level: 0.75
+    action: media_player.volume_set
+  - target:
+      device_id:
+      - 112dc83284137f5753a360ff1b508e15
+    data:
+      enqueue: add
+      metadata: {}
+>>>>>>> e9374e6 (updated automations)
       media:
         media_content_id: media-source://media_source/local/Doorbell/Someone knocking
           on the door.mp3
         media_content_type: audio/mpeg
         metadata: {}
+<<<<<<< HEAD
       enqueue: add
+=======
+>>>>>>> e9374e6 (updated automations)
     action: media_player.play_media
   mode: single
 - id: '1757427938275'
@@ -318,7 +372,13 @@
     - fri
     - sat
   actions:
+<<<<<<< HEAD
   - data:
+=======
+  - target:
+      device_id: 2bb886d6e9807e3973f0378a059d2100
+    data:
+>>>>>>> e9374e6 (updated automations)
       volume_level: 0.5
     action: media_player.volume_set
     target:
@@ -330,10 +390,10 @@
       media_player_entity_id: media_player.gh_ha_all_speakers
       message: The dishes are clean
     action: tts.speak
-  - action: script.turn_on
-    data: {}
-    target:
+  - target:
       entity_id: script.flash_kitchen_nightlight_when_dishes_are_clean
+    data: {}
+    action: script.turn_on
   mode: single
 - id: '1757439538889'
   alias: Front of house lights on at sunset
@@ -377,11 +437,11 @@
     device_id: ca70f08f74ed5159305440dd9f34e0f1
     entity_id: 71b639894f45486886bb3388d2c51ff5
     domain: binary_sensor
-    trigger: device
     for:
       hours: 0
       minutes: 2
       seconds: 0
+<<<<<<< HEAD
   conditions: []
   actions:
   - action: media_player.volume_set
@@ -395,6 +455,35 @@
       cache: false
       entity_id: media_player.gh_ha_all_speakers
       message: The  Garage Freezer door is open, Please close immediately.
+  mode: single
+- id: '1757440249644'
+  alias: Office TV - Couch Light Sync
+  description: Couch light turns purple when TV is playing, white when idle or off
+  triggers:
+  - entity_id: media_player.office_roku_tv
+    to: playing
+    trigger: state
+  - entity_id: media_player.office_roku_tv
+    to: idle
+    trigger: state
+  - entity_id: media_player.office_roku_tv
+    to: 'off'
+    trigger: state
+=======
+    trigger: device
+  conditions: []
+>>>>>>> e9374e6 (updated automations)
+  actions:
+  - target:
+      device_id: 2bb886d6e9807e3973f0378a059d2100
+    data:
+      volume_level: 0.66
+    action: media_player.volume_set
+  - data:
+      cache: false
+      entity_id: media_player.gh_ha_all_speakers
+      message: The Garage Freezer door is open. Please close it immediately.
+    action: tts.cloud_say
   mode: single
 - id: '1757440249644'
   alias: Office TV - Couch Light Sync
@@ -519,6 +608,7 @@
     data: {}
   mode: single
 - id: '1757644001455'
+<<<<<<< HEAD
   alias: Gabby Home After Dark
   description: Turns on Gabby's Deck Light when she gets home after dark
   triggers:
@@ -537,4 +627,53 @@
     entity_id: aad564fa6fb9364c27125469a28f0c2d
     domain: light
     brightness_pct: 75
+=======
+  alias: Side garage door open
+  description: If Side Garage door opens after 9:30 PM, flash hall night light red;
+    return to light blue at 50% when closed
+  triggers:
+  - entity_id: binary_sensor.side_garage_door
+    trigger: state
+  conditions:
+  - condition: time
+    after: '21:30:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'on'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 242
+          - 7
+          - 7
+          flash: short
+        action: light.turn_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.side_garage_door
+        state: 'off'
+      sequence:
+      - target:
+          entity_id: light.hall_night_light
+        data:
+          rgb_color:
+          - 173
+          - 216
+          - 230
+          brightness_pct: 50
+        action: light.turn_on
+>>>>>>> e9374e6 (updated automations)
   mode: single
