@@ -1027,11 +1027,6 @@
       icon: mdi:scent
       friendly_name: Office Scentcy
       state: 'off'
-    switch.picture_lights_2:
-      device_class: outlet
-      icon: mdi:panorama-variant
-      friendly_name: Picture Lights
-      state: 'off'
   icon: mdi:home
 - id: '1736203535543'
   name: Lets Relax Scene
@@ -4093,6 +4088,7 @@
   metadata:
     switch.nightstand_lights:
       entity_only: true
+  icon: mdi:sleep
 - id: '1740331759321'
   name: Movie mode
   entities:
@@ -5260,4 +5256,55 @@
       supported_features: 4
       state: 'on'
   icon: mdi:movie-open-minus
+  metadata: {}
+- id: '1758389585655'
+  name: morning scene
+  entities:
+    media_player.master_tv:
+      source_list:
+      - TV
+      - HDMI
+      device_class: tv
+      friendly_name: Master TV
+      supported_features: 24509
+      is_volume_muted: false
+      state: 'on'
+    remote.master_tv:
+      friendly_name: Master TV
+      supported_features: 0
+      state: 'on'
+    media_player.roku_in_master_bedroom:
+      source_list:
+      - Home
+      - Aquatic Life
+      - Arizona's Family +
+      - CBS Sports Stream & Watch Live
+      - Disney Plus
+      - ESPN
+      - FOX Sports
+      - HDHomeRun
+      - Hulu
+      - Live TV Guide
+      - Netflix
+      - Peacock TV
+      - Plex - Free Movies & TV
+      - Prime Video
+      - Spotify Music
+      - YouTube
+      device_class: receiver
+      friendly_name: Roku in Master Bedroom
+      supported_features: 151481
+      media_content_type: app
+      app_id: '214076'
+      app_name: Arizona's Family +
+      source: Arizona's Family +
+      entity_picture: /api/media_player_proxy/media_player.roku_in_master_bedroom?token=595029bedde853844f08a6305611012c216b09fdcc145dccb4c8c43df031ed63&cache=e11f2f53cb163774
+      media_duration: 68
+      media_position: 16
+      media_position_updated_at: '2025-09-20T17:33:18.049638+00:00'
+      state: playing
+    remote.roku_in_master_bedroom:
+      friendly_name: Roku in Master Bedroom
+      supported_features: 0
+      state: 'on'
   metadata: {}
