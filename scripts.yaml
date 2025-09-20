@@ -42,40 +42,44 @@ time_for_bed_script_3:
   icon: mdi:bed
   mode: restart
   sequence:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.time_for_bed_scene
-    - service: scene.turn_on
-      target:
-        entity_id: scene.time_to_go_home_scene
-    - service: script.flash_hall_nightlight_until_garage_door_closes
-    - delay:
-        minutes: 5
-    - service: switch.turn_off
-      target:
-        entity_id: switch.kitchen_accent_lights_power_switch
-
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.time_for_bed_scene
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.time_to_go_home_scene
+  - action: script.flash_hall_nightlight_until_garage_door_closes
+    metadata: {}
+    data: {}
+  - delay:
+      minutes: 5
+  - action: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.kitchen_accent_lights_power_switch
 boost_light_temporarily:
-  alias: Boost Light Temporarily (Front Door)
-  description: Temporarily boosts front door light, then restores previous state
-  mode: queued
+  alias: Boost Light Temporarily Front Door
+  description: ''
   sequence:
-    - service: scene.create
-      data:
-        scene_id: restore_front_door
-        snapshot_entities:
-          - light.front_door_light
-    - service: light.turn_on
-      target:
-        device_id: 12eb2902fec46e4063b6bca537501535
-      data:
-        brightness_pct: 100
-        color_temp_kelvin: 6500
-    - delay: "00:02:00"
-    - service: scene.turn_on
-      target:
-        entity_id: scene.restore_front_door
-
+  - action: scene.create
+    data:
+      scene_id: restore_front_door
+      snapshot_entities:
+      - light.front_door_light
+  - action: light.turn_on
+    target:
+      device_id: 12eb2902fec46e4063b6bca537501535
+    data:
+      brightness_pct: 100
+      color_temp_kelvin: 6500
+  - delay: 00:02:00
+  - action: scene.turn_on
+    target:
+      entity_id: scene.restore_front_door
 flash_hall_nightlight_until_garage_door_closes:
   alias: Flash Hall Nightlight Until Garage Door Closes
   description: Flashes red if garage door is open, then restores previous nightlight state
@@ -120,86 +124,88 @@ flash_kitchen_nightlight_when_dishes_are_clean:
   description: Flashes kitchen nightlight blue for 5 minutes, then restores previous state
   mode: restart
   sequence:
-    - variables:
-        stop_time: "{{ now() + timedelta(minutes=5) }}"
-    - service: scene.create
-      data:
-        scene_id: restore_kitchen_nightlight
-        snapshot_entities:
-          - light.kitchen_nightlight_light
-    - repeat:
-        count: 6
-        sequence:
-          - service: light.turn_on
-            target:
-              entity_id: light.kitchen_nightlight_light
-            data:
-              brightness: 255
-              rgb_color: [0, 0, 255]
-          - delay:
-              seconds: 1
-          - service: light.turn_off
-            target:
-              entity_id: light.kitchen_nightlight_light
-          - delay:
-              seconds: 1
-    - service: scene.turn_on
-      target:
-        entity_id: scene.restore_kitchen_nightlight
-
+  - variables:
+      stop_time: '{{ now() + timedelta(minutes=5) }}'
+  - data:
+      scene_id: restore_kitchen_nightlight
+      snapshot_entities:
+      - light.kitchen_nightlight_light
+    action: scene.create
+  - repeat:
+      count: 6
+      sequence:
+      - target:
+          entity_id: light.kitchen_nightlight_light
+        data:
+          brightness: 255
+          rgb_color:
+          - 0
+          - 0
+          - 255
+        action: light.turn_on
+      - delay:
+          seconds: 1
+      - target:
+          entity_id: light.kitchen_nightlight_light
+        action: light.turn_off
+      - delay:
+          seconds: 1
+  - target:
+      entity_id: scene.restore_kitchen_nightlight
+    action: scene.turn_on
 boost_light_temporarily_driveway_lights:
-  alias: Boost Light Temporarily (Driveway Lights)
-  description: Temporarily boosts driveway lights, then restores previous state
-  mode: queued
   sequence:
-    - service: scene.create
-      data:
-        scene_id: restore_driveway_lights
-        snapshot_entities:
-          - light.driveway_lights
-    - service: light.turn_on
-      target:
-        entity_id: light.driveway_lights
-      data:
-        brightness_pct: 100
-        color_temp_kelvin: 6500
-    - delay: "00:02:00"
-    - service: scene.turn_on
-      target:
-        entity_id: scene.restore_driveway_lights
-
+  - action: scene.create
+    data:
+      scene_id: restore_driveway_lights
+      snapshot_entities:
+      - light.driveway_lights
+  - action: light.turn_on
+    data:
+      brightness_pct: 100
+      color_temp_kelvin: 6500
+    target:
+      entity_id: light.driveway_lights
+  - delay: 00:02:00
+  - action: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.restore_driveway_lights
+  alias: Boost Light Temporarily Driveway Lights
+  description: ''
 good_morning:
-  alias: Good Morning
-  description: Starts AV remotes, plays media, and fetches weather
-  mode: single
   sequence:
-    - type: turn_on
-      device_id: f20fc61cd6683f5e70b2e311302e8ae1
-      entity_id: 8d67a20cd0764aa65d44117ad1e673ec
-      domain: remote
-    - type: turn_on
+  - type: turn_on
+    device_id: f20fc61cd6683f5e70b2e311302e8ae1
+    entity_id: 8d67a20cd0764aa65d44117ad1e673ec
+    domain: remote
+  - type: turn_on
+    device_id: 45c40c91de069e2cc8140bfd3642a517
+    entity_id: f31bdb8e3f315628112c0bb4f900ae02
+    domain: remote
+  - action: media_player.play_media
+    metadata: {}
+    data:
+      media:
+        media_content_id: '214076'
+        media_content_type: app
+        metadata:
+          title: Arizona's Family +
+          thumbnail: /api/media_player_proxy/media_player.roku_in_master_bedroom/browse_media/app/214076?token=1b4134b72f8ecf3434cd25b5708ede96f82da63016f605dc300a1defaf8067ba
+          media_class: app
+          children_media_class:
+          navigateIds:
+          - {}
+          - media_content_type: apps
+            media_content_id: ''
+          browse_entity_id: media_player.roku_in_master_bedroom
+    target:
       device_id: 45c40c91de069e2cc8140bfd3642a517
-      entity_id: f31bdb8e3f315628112c0bb4f900ae02
-      domain: remote
-    - service: media_player.play_media
-      target:
-        device_id: 45c40c91de069e2cc8140bfd3642a517
-      data:
-        media:
-          media_content_id: "214076"
-          media_content_type: app
-          metadata:
-            title: Arizona's Family +
-            thumbnail: /api/media_player_proxy/media_player.roku_in_master_bedroom/browse_media/app/214076?token=1b4134b72f8ecf3434cd25b5708ede96f82da63016f605dc300a1defaf8067ba
-            media_class: app
-            children_media_class:
-            navigateIds:
-              - {}
-              - media_content_type: apps
-                media_content_id: ""
-            browse_entity_id: media_player.roku_in_master_bedroom
-    - service: weather.get_forecasts
-      target:
-        device_id: e527618b244218e185496512229db856
-      data:
-        type: daily
+  - action: weather.get_forecasts
+    metadata: {}
+    data:
+      type: daily
+    target:
+      device_id: e527618b244218e185496512229db856
+  alias: Good morning
+  description: ''
