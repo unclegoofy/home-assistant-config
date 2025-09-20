@@ -9,9 +9,29 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-
 # HTTP proxy settings
 http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 192.168.80.100
+
+# Recorder settings to SQLite
+recorder:
+  purge_keep_days: 7
+  auto_purge: true
+  commit_interval: 30
+  exclude:
+    domains:
+      - updater
+      - system_health
+    entities:
+      - sensor.noisy_debug_sensor
+  include:
+    domains:
+      - sensor
+      - switch
+      - light
+      - binary_sensor
+
+history: {}
+logbook: {}

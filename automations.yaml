@@ -182,7 +182,8 @@
   alias: Dryer has finished running
   description: Announce on speakers when dryer finishes
   triggers:
-  - entity_id: binary_sensor.dryer_remote_status
+  - entity_id:
+    - sensor.dryer_machine_state
     from: 'on'
     to: 'off'
     trigger: state
@@ -214,8 +215,9 @@
   alias: Washer is finished running
   description: Announce on speakers when washer finishes
   triggers:
-  - entity_id: binary_sensor.washer_remote_status
-    from: 'on'
+  - entity_id:
+    - sensor.washer_state
+    from:
     to: 'off'
     trigger: state
   conditions:
@@ -409,50 +411,16 @@
   description: Couch light turns purple when TV is playing, white when idle or off
   triggers:
   - entity_id: media_player.office_roku_tv
-    to: playing
-    trigger: state
-  - entity_id: media_player.office_roku_tv
-    to: idle
-    trigger: state
-  - entity_id: media_player.office_roku_tv
-    to: 'off'
     trigger: state
   actions:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: media_player.office_roku_tv
-        state: playing
-      sequence:
-      - target:
-          entity_id: light.office_couch_lamp
-        data:
-          rgb_color:
-          - 75
-          - 0
-          - 130
-          brightness: 180
-        action: light.turn_on
-    - conditions:
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: media_player.office_roku_tv
-          state: idle
-        - condition: state
-          entity_id: media_player.office_roku_tv
-          state: 'off'
-      sequence:
-      - target:
-          entity_id: light.office_couch_lamp
-        data:
-          rgb_color:
-          - 255
-          - 255
-          - 255
-          brightness: 220
-          color_temp_kelvin: 4168
-        action: light.turn_on
+  - target:
+      entity_id: light.office_couch_lamp
+    data:
+      rgb_color: "{% if states('media_player.office_roku_tv') == 'playing' %}\n  [75,
+        0, 130]\n{% else %}\n  [255, 255, 255]\n{% endif %}\n"
+      brightness: "{% if states('media_player.office_roku_tv') == 'playing' %}\n  180\n{%
+        else %}\n  220\n{% endif %}\n"
+    action: light.turn_on
   mode: single
 - id: '1757442161116'
   alias: Bench Light on when dark and motion detected

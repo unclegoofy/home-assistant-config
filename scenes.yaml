@@ -635,7 +635,7 @@
       rgb_color:
       xy_color:
       off_with_transition: false
-      off_brightness:
+      off_brightness: 143
       icon: phu:pendant-cher
       friendly_name: Cougar Lamp
       supported_features: 40
@@ -656,7 +656,7 @@
       rgb_color:
       xy_color:
       off_with_transition: false
-      off_brightness:
+      off_brightness: 145
       icon: mdi:lamp
       friendly_name: Wine Fridge Lamp
       supported_features: 40
@@ -677,7 +677,7 @@
       rgb_color:
       xy_color:
       off_with_transition: false
-      off_brightness:
+      off_brightness: 220
       icon: mdi:lamp
       friendly_name: Office Couch Lamp
       supported_features: 40
@@ -1021,6 +1021,11 @@
       device_class: outlet
       icon: mdi:scent
       friendly_name: Office Scentcy
+      state: 'off'
+    switch.picture_lights_2:
+      device_class: outlet
+      icon: mdi:panorama-variant
+      friendly_name: Picture Lights
       state: 'off'
   icon: mdi:home
   metadata:
