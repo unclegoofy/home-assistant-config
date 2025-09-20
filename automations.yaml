@@ -1,7 +1,7 @@
 # ===============================
 # 🐠 Fish Tank Lighting Schedule
 # ===============================
-- id: '1736200159144'
+- id: "1736200159144"
   alias: Turn On Fish Lights
   description: Turns on the Fish Tank lights at 6:30 am
   trigger:
@@ -13,7 +13,7 @@
         entity_id: switch.fish_tank
   mode: single
 
-- id: '1736200267958'
+- id: "1736200267958"
   alias: Turn Off Fish Lights
   description: Turns off the Fish Tank lights at 7:30 pm
   trigger:
@@ -28,7 +28,7 @@
 # ===============================
 # 🧑‍💼 Office Routine (Weekdays)
 # ===============================
-- id: '1736200586902'
+- id: "1736200586902"
   alias: Turn on Office for Work
   description: Activates work scene on weekdays at 6:30 am
   trigger:
@@ -48,12 +48,10 @@
         entity_id: scene.time_for_work_2
   mode: single
 
-# ===============================
-# 🚪 Pantry Door Light Control
-# ===============================
-- id: '1736201001617'
+- id: "1736201001617"
   alias: Pantry Light On/Off
   description: Turns pantry light on when door opens, off when closed
+  mode: single
   trigger:
     - platform: state
       entity_id: binary_sensor.pantry_door_opening
@@ -67,18 +65,15 @@
             - service: switch.turn_on
               target:
                 device_id: 9c6123c4d1b9823b2545b66aaaf8570e
-        default:
-          - service: switch.turn_off
-            target:
-              device_id: 9c6123c4d1b9823b2545b66aaaf8570e
-  mode: single
+      default:
+        - service: switch.turn_off
+          target:
+            device_id: 9c6123c4d1b9823b2545b66aaaf8570e
 
-# ===============================
-# 📺 Family Room TV LED Sync
-# ===============================
-- id: '1736201460884'
+- id: "1736201460884"
   alias: Family Room LED's
   description: Sync LED strips with Family Room TV state
+  mode: single
   trigger:
     - platform: device
       device_id: 9d81494c52d6e78ab4255bea9b9b1890
@@ -97,18 +92,15 @@
                 entity_id:
                   - switch.family_room_led_strip_1
                   - switch.family_room_led_strip_2
-        default:
-          - service: switch.turn_off
-            target:
-              entity_id: switch.family_room_led_strip_1
-  mode: single
+      default:
+        - service: switch.turn_off
+          target:
+            entity_id: switch.family_room_led_strip_1
 
-# ===============================
-# 📺 Master Bedroom TV LED Sync
-# ===============================
-- id: '1736201652503'
+- id: "1736201652503"
   alias: Master TV LED's
   description: Sync master bedroom LED with TV state
+  mode: single
   trigger:
     - platform: device
       device_id: f20fc61cd6683f5e70b2e311302e8ae1
@@ -127,16 +119,16 @@
                 device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
               data:
                 brightness_pct: 95
-        default:
-          - service: light.turn_off
-            target:
-              device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
-  mode: single
+      default:
+        - service: light.turn_off
+          target:
+            device_id: 3673c0b2fe68b3346e7d0d2fa47c2184
+
 # ============================================
 # 🚪 Side Garage Door Nightlight Alert
 # ============================================
 
-- id: '1736202150288'
+- id: "1736202150288"
   alias: Side Garage Door Open
   description: If side garage door opens after 9:30 PM, flash hall nightlight red; return to light blue at 50% when closed
   mode: single
@@ -183,7 +175,7 @@
 # 🧺 Dryer Completion Announcement
 # ============================================
 
-- id: '1736202452093'
+- id: "1736202452093"
   alias: Dryer Has Finished Running
   description: Announce on speakers when dryer finishes
   mode: single
@@ -220,7 +212,7 @@
 # 🧼 Washer Completion Announcement
 # ============================================
 
-- id: '1736202825725'
+- id: "1736202825725"
   alias: Washer Is Finished Running
   description: Announce on speakers when washer finishes
   mode: single
@@ -256,7 +248,7 @@
 # 🌇 Let's Relax Scene Trigger
 # ============================================
 
-- id: '1736203243743'
+- id: "1736203243743"
   alias: Let's Relax
   description: Activates relaxation scene 5 minutes before sunset
   mode: single
@@ -273,7 +265,7 @@
 # 🛏️ Time for Bed Routine
 # ============================================
 
-- id: '1736205456810'
+- id: "1736205456810"
   alias: Time for Bed
   description: Runs bedtime script if kitchen accent light is on at 11:30 PM
   mode: single
@@ -295,7 +287,7 @@
 # 🚪 Doorbell Motion Media Playback
 # ============================================
 
-- id: '1736205770847'
+- id: "1736205770847"
   alias: Play Media When Doorbell Is Pushed
   description: Plays doorbell sound on speakers when motion is detected
   mode: single
@@ -330,7 +322,7 @@
 # 🍽️ Dishwasher Completion Notification
 # ============================================
 
-- id: '1757427938275'
+- id: "1757427938275"
   alias: Dishwasher Has Finished Running
   description: Announces clean dishes and flashes kitchen nightlight
   mode: single
@@ -372,7 +364,7 @@
 # 💡 Front of House Lights On at Sunset
 # ============================================
 
-- id: '1757439538889'
+- id: "1757439538889"
   alias: Front of House Lights On at Sunset
   description: Uses blueprint to turn on front lights at sunset
   use_blueprint:
@@ -389,7 +381,7 @@
 # 💡 Front of House Lights Off at Sunrise
 # ============================================
 
-- id: '1757439642812'
+- id: "1757439642812"
   alias: Front of House Lights Off at Sunrise
   description: Turns off front lights at sunrise
   mode: single
@@ -414,7 +406,7 @@
 # 🧊 Garage Freezer Door Alert
 # ============================================
 
-- id: '1757439807215'
+- id: "1757439807215"
   alias: Garage Freezer Door Open
   description: Alerts if freezer door is open for more than 2 minutes
   mode: single
@@ -442,7 +434,7 @@
 # 🛋️ Office TV - Couch Light Sync
 # ============================================
 
-- id: '1757440249644'
+- id: "1757440249644"
   alias: Office TV - Couch Light Sync
   description: Couch light turns purple when TV is playing, white when idle or off
   mode: single
@@ -471,7 +463,7 @@
 # 💡 Bench Light on When Dark and Motion Detected
 # ============================================
 
-- id: '1757442161116'
+- id: "1757442161116"
   alias: Bench Light on When Dark and Motion Detected
   description: Uses blueprint to trigger bench lights based on darkness and motion
   use_blueprint:
@@ -490,7 +482,7 @@
 # 🌡️ Garage Fan Temperature Control
 # ============================================
 
-- id: '1757451967553'
+- id: "1757451967553"
   alias: Garage Fan Temperature Control
   description: Turns fan on above 90°F, off below 82°F
   mode: single
@@ -522,7 +514,7 @@
 # 🚪 Front Door Motion Boost
 # ============================================
 
-- id: '1757453682834'
+- id: "1757453682834"
   alias: Front Door Motion Boost
   description: Turn on front porch light to full brightness, then restore
   mode: single
@@ -542,7 +534,7 @@
 # 🚗 Driveway Motion Boost
 # ============================================
 
-- id: '1757454208105'
+- id: "1757454208105"
   alias: Driveway Motion Boost
   description: Turn on driveway lights to full brightness, then restore
   mode: single
@@ -562,7 +554,7 @@
 # 🏡 Gabby Home After Dark
 # ============================================
 
-- id: '1757644001455'
+- id: "1757644001455"
   alias: Gabby Home After Dark
   description: Turns on Gabby's deck light when she arrives home after sunset
   mode: single
@@ -588,7 +580,7 @@
 # 🚶 Roxanne Leaves for Work
 # ============================================
 
-- id: '1758304107678'
+- id: "1758304107678"
   alias: Roxanne Leaves for Work
   description: Triggers goodnight scene when Roxanne leaves after 7:00 AM
   mode: single
