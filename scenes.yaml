@@ -542,11 +542,7 @@
       source_list:
       - Home
       - AV
-<<<<<<< HEAD
       - Arizona's Family News
-=======
-      - Arizona's Family +
->>>>>>> e9374e6 (updated automations)
       - CBS Sports Stream & Watch Live
       - Disney Plus
       - ESPN
@@ -561,11 +557,7 @@
       - Peacock TV
       - Plex - Free Movies & TV
       - Prime Video
-<<<<<<< HEAD
       - Spotify Music
-=======
-      - 'Spotify: Music & Podcasts'
->>>>>>> e9374e6 (updated automations)
       - YouTube
       device_class: tv
       friendly_name: Office TV
@@ -643,15 +635,7 @@
       rgb_color:
       xy_color:
       off_with_transition: false
-<<<<<<< HEAD
-<<<<<<< HEAD
       off_brightness: 97
-=======
-      off_brightness:
->>>>>>> e9374e6 (updated automations)
-=======
-      off_brightness: 143
->>>>>>> 2ae4e03 (added db update)
       icon: phu:pendant-cher
       friendly_name: Cougar Lamp
       supported_features: 40
@@ -672,15 +656,7 @@
       rgb_color:
       xy_color:
       off_with_transition: false
-<<<<<<< HEAD
-<<<<<<< HEAD
       off_brightness: 181
-=======
-      off_brightness:
->>>>>>> e9374e6 (updated automations)
-=======
-      off_brightness: 145
->>>>>>> 2ae4e03 (added db update)
       icon: mdi:lamp
       friendly_name: Wine Fridge Lamp
       supported_features: 40
@@ -701,27 +677,16 @@
       rgb_color:
       xy_color:
       off_with_transition: false
-<<<<<<< HEAD
-<<<<<<< HEAD
       off_brightness: 254
-=======
-      off_brightness:
->>>>>>> e9374e6 (updated automations)
-=======
-      off_brightness: 220
->>>>>>> 2ae4e03 (added db update)
       icon: mdi:lamp
       friendly_name: Office Couch Lamp
       supported_features: 40
       state: 'off'
-<<<<<<< HEAD
     switch.picture_lights_2:
       device_class: outlet
       icon: mdi:panorama-variant
       friendly_name: Picture Lights
       state: 'off'
-=======
->>>>>>> e9374e6 (updated automations)
     switch.desk_leds:
       icon: mdi:led-strip-variant
       friendly_name: Desk LEDS
@@ -1047,8 +1012,6 @@
       friendly_name: Office Desk LEDS
       supported_features: 44
       state: 'off'
-<<<<<<< HEAD
-=======
     switch.office_heater_2:
       device_class: outlet
       icon: mdi:heat-wave
@@ -1064,19 +1027,12 @@
       icon: mdi:scent
       friendly_name: Office Scentcy
       state: 'off'
-<<<<<<< HEAD
->>>>>>> e9374e6 (updated automations)
-=======
     switch.picture_lights_2:
       device_class: outlet
       icon: mdi:panorama-variant
       friendly_name: Picture Lights
       state: 'off'
->>>>>>> 2ae4e03 (added db update)
   icon: mdi:home
-  metadata:
-    switch.picture_lights_2:
-      entity_only: true
 - id: '1736203535543'
   name: Lets Relax Scene
   entities:
