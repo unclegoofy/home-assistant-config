@@ -183,6 +183,7 @@
   description: Announce on speakers when dryer finishes
   triggers:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - entity_id:
     - sensor.dryer_machine_state
     trigger: state
@@ -190,6 +191,10 @@
     to: 'Off'
 =======
   - entity_id: binary_sensor.dryer_remote_status
+=======
+  - entity_id:
+    - sensor.dryer_machine_state
+>>>>>>> 2ae4e03 (added db update)
     from: 'on'
     to: 'off'
     trigger: state
@@ -231,11 +236,17 @@
   description: Announce on speakers when washer finishes
   triggers:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - entity_id:
     - sensor.dishwasher_machine_state
 =======
   - entity_id: binary_sensor.washer_remote_status
     from: 'on'
+=======
+  - entity_id:
+    - sensor.washer_state
+    from:
+>>>>>>> 2ae4e03 (added db update)
     to: 'off'
 >>>>>>> e9374e6 (updated automations)
     trigger: state
@@ -490,50 +501,16 @@
   description: Couch light turns purple when TV is playing, white when idle or off
   triggers:
   - entity_id: media_player.office_roku_tv
-    to: playing
-    trigger: state
-  - entity_id: media_player.office_roku_tv
-    to: idle
-    trigger: state
-  - entity_id: media_player.office_roku_tv
-    to: 'off'
     trigger: state
   actions:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: media_player.office_roku_tv
-        state: playing
-      sequence:
-      - target:
-          entity_id: light.office_couch_lamp
-        data:
-          rgb_color:
-          - 75
-          - 0
-          - 130
-          brightness: 180
-        action: light.turn_on
-    - conditions:
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: media_player.office_roku_tv
-          state: idle
-        - condition: state
-          entity_id: media_player.office_roku_tv
-          state: 'off'
-      sequence:
-      - target:
-          entity_id: light.office_couch_lamp
-        data:
-          rgb_color:
-          - 255
-          - 255
-          - 255
-          brightness: 220
-          color_temp_kelvin: 4168
-        action: light.turn_on
+  - target:
+      entity_id: light.office_couch_lamp
+    data:
+      rgb_color: "{% if states('media_player.office_roku_tv') == 'playing' %}\n  [75,
+        0, 130]\n{% else %}\n  [255, 255, 255]\n{% endif %}\n"
+      brightness: "{% if states('media_player.office_roku_tv') == 'playing' %}\n  180\n{%
+        else %}\n  220\n{% endif %}\n"
+    action: light.turn_on
   mode: single
 - id: '1757442161116'
   alias: Bench Light on when dark and motion detected
@@ -676,4 +653,24 @@
           brightness_pct: 50
         action: light.turn_on
 >>>>>>> e9374e6 (updated automations)
+  mode: single
+- id: '1758304107678'
+  alias: Roxanne Leaves for work
+  description: ''
+  triggers:
+  - device_id: c3b47c069b52225f026dd58a98c8cd4e
+    domain: device_tracker
+    entity_id: af267c86e9af1913e5eb1d34d86a248d
+    type: leaves
+    trigger: device
+    zone: zone.home
+  conditions:
+  - condition: time
+    after: 07:00:00
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.goodnight_john_boy
   mode: single

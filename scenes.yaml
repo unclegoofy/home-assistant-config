@@ -430,12 +430,12 @@
       device_class: outlet
       icon: phu:double-smart-plug
       friendly_name: Office Main Wall Outlet
-      state: 'on'
+      state: 'off'
     switch.office_scentcy:
       device_class: outlet
       icon: mdi:scent
       friendly_name: Office Scentcy
-      state: 'on'
+      state: 'off'
     switch.fish_tank:
       device_class: outlet
       icon: mdi:fish
@@ -470,16 +470,16 @@
       - Peacock TV
       - Plex - Free Movies & TV
       - Prime Video
-      - Spotify Music
+      - 'Spotify: Music & Podcasts'
       - YouTube
-      device_class: tv
-      friendly_name: Office TV
-      supported_features: 151481
       media_content_type: app
       app_id: '297903'
       app_name: HDHomeRun
       source: HDHomeRun
-      entity_picture: /api/media_player_proxy/media_player.office_roku_tv?token=1a023093e81c74bce2230d0a9f0008c7f20888d95f783d7fadda52d30f4e91b9&cache=8007181727de2d72
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.office_roku_tv?token=114e3a104a378acd09502c958dde8bb50b2993cc5db08a988baaa28ab8a76fbf&cache=8007181727de2d72
+      friendly_name: Office TV
+      supported_features: 151481
       state: playing
     remote.office_roku_tv:
       friendly_name: Office TV
@@ -644,10 +644,14 @@
       xy_color:
       off_with_transition: false
 <<<<<<< HEAD
+<<<<<<< HEAD
       off_brightness: 97
 =======
       off_brightness:
 >>>>>>> e9374e6 (updated automations)
+=======
+      off_brightness: 143
+>>>>>>> 2ae4e03 (added db update)
       icon: phu:pendant-cher
       friendly_name: Cougar Lamp
       supported_features: 40
@@ -669,10 +673,14 @@
       xy_color:
       off_with_transition: false
 <<<<<<< HEAD
+<<<<<<< HEAD
       off_brightness: 181
 =======
       off_brightness:
 >>>>>>> e9374e6 (updated automations)
+=======
+      off_brightness: 145
+>>>>>>> 2ae4e03 (added db update)
       icon: mdi:lamp
       friendly_name: Wine Fridge Lamp
       supported_features: 40
@@ -694,10 +702,14 @@
       xy_color:
       off_with_transition: false
 <<<<<<< HEAD
+<<<<<<< HEAD
       off_brightness: 254
 =======
       off_brightness:
 >>>>>>> e9374e6 (updated automations)
+=======
+      off_brightness: 220
+>>>>>>> 2ae4e03 (added db update)
       icon: mdi:lamp
       friendly_name: Office Couch Lamp
       supported_features: 40
@@ -1052,7 +1064,15 @@
       icon: mdi:scent
       friendly_name: Office Scentcy
       state: 'off'
+<<<<<<< HEAD
 >>>>>>> e9374e6 (updated automations)
+=======
+    switch.picture_lights_2:
+      device_class: outlet
+      icon: mdi:panorama-variant
+      friendly_name: Picture Lights
+      state: 'off'
+>>>>>>> 2ae4e03 (added db update)
   icon: mdi:home
   metadata:
     switch.picture_lights_2:

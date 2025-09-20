@@ -174,3 +174,39 @@ boost_light_temporarily_driveway_lights:
       entity_id: scene.restore_driveway_lights
   alias: Boost Light Temporarily Driveway Lights
   description: ''
+good_morning:
+  sequence:
+  - type: turn_on
+    device_id: f20fc61cd6683f5e70b2e311302e8ae1
+    entity_id: 8d67a20cd0764aa65d44117ad1e673ec
+    domain: remote
+  - type: turn_on
+    device_id: 45c40c91de069e2cc8140bfd3642a517
+    entity_id: f31bdb8e3f315628112c0bb4f900ae02
+    domain: remote
+  - action: media_player.play_media
+    metadata: {}
+    data:
+      media:
+        media_content_id: '214076'
+        media_content_type: app
+        metadata:
+          title: Arizona's Family +
+          thumbnail: /api/media_player_proxy/media_player.roku_in_master_bedroom/browse_media/app/214076?token=1b4134b72f8ecf3434cd25b5708ede96f82da63016f605dc300a1defaf8067ba
+          media_class: app
+          children_media_class:
+          navigateIds:
+          - {}
+          - media_content_type: apps
+            media_content_id: ''
+          browse_entity_id: media_player.roku_in_master_bedroom
+    target:
+      device_id: 45c40c91de069e2cc8140bfd3642a517
+  - action: weather.get_forecasts
+    metadata: {}
+    data:
+      type: daily
+    target:
+      device_id: e527618b244218e185496512229db856
+  alias: Good morning
+  description: ''
